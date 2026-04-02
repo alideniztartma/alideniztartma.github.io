@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Deniz | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f111a; --panel: #161925; --fg: #a9b1d6;
+            --accent: #7aa2f7; --neon: #bb9af7; --sub: #565f89;
+            --success: #9ece6a; --border: rgba(122, 162, 247, 0.1);
+        }
+        * { box-sizing: border-box; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+        body {
+            background: var(--bg); color: var(--fg);
+            font-family: 'Inter', sans-serif; margin: 0;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; padding: 20px; line-height: 1.5;
+        }
+
+        .card {
+            background: var(--panel); width: 100%; max-width: 850px;
+            border-radius: 16px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            border: 1px solid var(--border); overflow: hidden;
+        }
+
+        .header {
+            background: rgba(0,0,0,0.3); padding: 12px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .dots { display: flex; gap: 6px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; opacity: 0.8; }
+
+        .lang-switch {
+            display: flex; gap: 5px; background: var(--bg);
+            padding: 4px; border-radius: 8px; border: 1px solid var(--border);
+        }
+        .lang-btn {
+            background: transparent; border: none; color: var(--sub);
+            padding: 4px 10px; cursor: pointer; border-radius: 6px;
+            font-family: 'Fira Code'; font-size: 0.7rem; font-weight: 600;
+        }
+        .lang-btn.active { background: var(--accent); color: var(--bg); }
+
+        .content { padding: 45px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; }
+
+        .profile h1 { margin: 0; font-size: 2rem; color: #fff; font-weight: 700; letter-spacing: -0.5px; }
+        .typing-wrapper {
+            font-family: 'Fira Code'; color: var(--neon); font-size: 0.9rem;
+            margin: 8px 0 25px 0; min-height: 1.2rem;
+        }
+        .bio { font-size: 0.92rem; color: var(--fg); margin-bottom: 25px; opacity: 0.9; }
+
+        .section-title {
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--accent); margin: 30px 0 15px 0; font-weight: 700;
+        }
+
+        .skill-list { list-style: none; padding: 0; margin: 0; font-size: 0.85rem; }
+        .skill-list li {
+            margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+        }
+        .skill-list li::before { content: "•"; color: var(--neon); }
+
+        .info-card {
+            background: rgba(0,0,0,0.15); border-radius: 10px;
+            padding: 15px; margin-bottom: 15px; border-left: 3px solid transparent;
+        }
+        .info-card:hover { border-left-color: var(--accent); transform: translateX(5px); }
+        .card-head { display: flex; justify-content: space-between; align-items: baseline; }
+        .card-title { color: #fff; font-weight: 600; font-size: 0.95rem; }
+        .card-sub { font-size: 0.8rem; color: var(--sub); margin-top: 4px; }
+        .card-date { font-family: 'Fira Code'; font-size: 0.7rem; color: var(--success); }
+
+        .tag-box { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .tag {
+            font-family: 'Fira Code'; font-size: 0.65rem; padding: 2px 8px;
+            background: rgba(122, 162, 247, 0.1); color: var(--accent);
+            border-radius: 4px; border: 1px solid rgba(122, 162, 247, 0.2);
+        }
+
+        a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+        a:hover { border-bottom-color: var(--accent); }
+
+        .footer {
+            margin-top: 30px; font-family: 'Fira Code'; font-size: 0.75rem;
+            color: var(--sub); text-align: right;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+        @media (max-width: 800px) { .content { grid-template-columns: 1fr; padding: 30px; } }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <div class="dots">
+                <div class="dot" style="background: #ff5f56;"></div>
+                <div class="dot" style="background: #ffbd2e;"></div>
+                <div class="dot" style="background: #27c93f;"></div>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="left-col">
+                <h1 data-en="Ali Deniz." data-tr="Ali Deniz.">Ali Deniz.</h1>
+                <div class="typing-wrapper">
+                    <span id="type-text"></span><span style="animation: blink 1s infinite;">_</span>
+                </div>
+
+                <p class="bio" id="bio-text"></p>
+
+                <div class="section-title" data-en="Core Interests" data-tr="Odak Alanları">Core Interests</div>
+                <ul class="skill-list">
+                    <li data-en="Exploring Linux-based systems" data-tr="Linux tabanlı sistemleri keşfetmek"></li>
+                    <li data-en="Contributing to FOSS projects" data-tr="FOSS projelerine katkıda bulunmak"></li>
+                    <li data-en="Visual storytelling & video editing" data-tr="Görsel hikaye anlatımı ve video kurgu"></li>
+                    <li data-en="Building minimalist CLI & GUI tools" data-tr="Minimalist CLI ve GUI araçları geliştirmek"></li>
+                </ul>
+
+                <div class="tag-box">
+                    <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Git</span><span class="tag">Bash</span><span class="tag">After Effects</span>
+                </div>
+            </div>
+
+            <div class="right-col">
+                <div class="section-title" data-en="Contributions" data-tr="Katkılar">Contributions</div>
+
+                <div class="info-card">
+                    <div class="card-head">
+                        <span class="card-title">NASA F' (F Prime)</span>
+                        <span class="card-date">2026</span>
+                    </div>
+                    <div class="card-sub" data-en="Improved technical documentation & consistency." data-tr="Teknik dökümantasyon ve tutarlılık iyileştirmeleri."></div>
+                </div>
+
+                <div class="info-card">
+                    <div class="card-head">
+                        <span class="card-title">Meta / React</span>
+                        <span class="card-date">2026</span>
+                    </div>
+                    <div class="card-sub" data-en="Refined documentation and fixed codebase typos." data-tr="Dökümantasyon düzenlemeleri ve yazım hatası düzeltmeleri."></div>
+                </div>
+
+                <div class="section-title" data-en="Projects" data-tr="Projeler">Projects</div>
+
+                <div class="info-card">
+                    <div class="card-head">
+                        <span class="card-title"><a href="#">Vessel Journal</a></span>
+                        <span class="card-date">Active</span>
+                    </div>
+                    <div class="card-sub" data-en="A minimalist, cross-platform journaling tool." data-tr="Minimalist, platformlar arası günlük aracı."></div>
+                </div>
+
+                <div class="info-card">
+                    <div class="card-head">
+                        <span class="card-title"><a href="#">Termind</a></span>
+                        <span class="card-date">Active</span>
+                    </div>
+                    <div class="card-sub" data-en="Keyboard-centric CLI task manager." data-tr="Klavye odaklı CLI görev yöneticisi."></div>
+                </div>
+
+                <div class="footer">
+                    ~/contact <a href="mailto:tartma@alideniz.me" style="color:var(--neon)">tartma@alideniz.me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const texts = {
+            en: ["Open Source Enthusiast", "Linux User", "Developer"],
+            tr: ["Açık Kaynak Gönüllüsü", "Linux Kullanıcısı", "Geliştirici"]
+        };
+
+        const age = new Date().getFullYear() - 2011;
+
+        const bios = {
+            en: `A ${age}-year-old high school student and open-source enthusiast. I enjoy building functional tools and contributing to the global developer community.`,
+            tr: `${age} yaşında bir lise öğrencisi ve açık kaynak meraklısıyım. İşlevsel araçlar geliştirmeyi ve küresel yazılım topluluğuna katkıda bulunmayı seviyorum.`
+        };
+
+        let currentLang = 'en';
+        let wordIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        let timeout;
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+
+            document.getElementById('bio-text').textContent = bios[lang];
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+
+            wordIdx = 0; charIdx = 0; isDeleting = false;
+            clearTimeout(timeout);
+            type();
+        }
+
+        function type() {
+            const currentWord = texts[currentLang][wordIdx];
+            const target = document.getElementById('type-text');
+
+            if (isDeleting) {
+                target.textContent = currentWord.substring(0, charIdx--);
+            } else {
+                target.textContent = currentWord.substring(0, charIdx++);
+            }
+
+            let speed = isDeleting ? 30 : 70;
+
+            if (!isDeleting && charIdx === currentWord.length + 1) {
+                isDeleting = true;
+                speed = 2000;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                wordIdx = (wordIdx + 1) % texts[currentLang].length;
+                speed = 500;
+            }
+
+            timeout = setTimeout(type, speed);
+        }
+
+        setLang('en');
+    </script>
+</body>
+</html>
