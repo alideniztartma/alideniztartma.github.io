@@ -1,17 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ali Deniz Tartma | Portfolio</title>
+
+    <meta name="description" content="Ali Deniz Tartma - 15 yaşında açık kaynak gönüllüsü, Linux kullanıcısı ve geliştirici. NASA, MDN ve React katkıcısı.">
+    <meta name="keywords" content="Ali Deniz Tartma, Yazılım, Portfolyo, Open Source, Linux, Arch Linux, React, NASA F Prime">
+    <meta name="author" content="Ali Deniz Tartma">
+
+    <meta property="og:title" content="Ali Deniz Tartma | Portfolio">
+    <meta property="og:description" content="Açık kaynak dünyasına katkıda bulunan genç bir geliştiricinin yolculuğu.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alideniz.me">
+
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0f111a; --panel: #161925; --fg: #a9b1d6;
             --accent: #7aa2f7; --neon: #bb9af7; --sub: #565f89;
             --success: #9ece6a; --border: rgba(122, 162, 247, 0.1);
+            --header-bg: rgba(0,0,0,0.3);
+            --card-shadow: rgba(0,0,0,0.5);
+            --title-color: #fff;
         }
-        * { box-sizing: border-box; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        [data-theme="light"] {
+            --bg: #e5e9f0; --panel: #ffffff; --fg: #4c566a;
+            --accent: #5e81ac; --neon: #b48ead; --sub: #96a1b1;
+            --success: #a3be8c; --border: rgba(0, 0, 0, 0.05);
+            --header-bg: rgba(0,0,0,0.05);
+            --card-shadow: rgba(0,0,0,0.1);
+            --title-color: #2e3440;
+        }
+
+        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         body {
             background: var(--bg); color: var(--fg);
             font-family: 'Inter', sans-serif; margin: 0;
@@ -21,16 +44,29 @@
 
         .card {
             background: var(--panel); width: 100%; max-width: 850px;
-            border-radius: 16px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            border-radius: 16px; box-shadow: 0 30px 60px var(--card-shadow);
             border: 1px solid var(--border); overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .header {
-            background: rgba(0,0,0,0.3); padding: 12px 20px;
+            background: var(--header-bg); padding: 12px 20px;
             display: flex; justify-content: space-between; align-items: center;
         }
         .dots { display: flex; gap: 6px; }
         .dot { width: 10px; height: 10px; border-radius: 50%; opacity: 0.8; }
+
+        .controls { display: flex; gap: 10px; align-items: center; }
+        .theme-toggle {
+            background: var(--bg); border: 1px solid var(--border);
+            color: var(--fg); padding: 5px 12px; border-radius: 8px;
+            cursor: pointer; font-family: 'Fira Code'; font-size: 0.75rem;
+        }
 
         .lang-switch {
             display: flex; gap: 5px; background: var(--bg);
@@ -41,11 +77,11 @@
             padding: 4px 10px; cursor: pointer; border-radius: 6px;
             font-family: 'Fira Code'; font-size: 0.7rem; font-weight: 600;
         }
-        .lang-btn.active { background: var(--accent); color: var(--bg); }
+        .lang-btn.active { background: var(--accent); color: white; }
 
         .content { padding: 45px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; }
 
-        .profile h1 { margin: 0; font-size: 2rem; color: #fff; font-weight: 700; letter-spacing: -0.5px; }
+        .profile h1 { margin: 0; font-size: 2rem; color: var(--title-color); font-weight: 700; letter-spacing: -0.5px; }
         .typing-wrapper {
             font-family: 'Fira Code'; color: var(--neon); font-size: 0.9rem;
             margin: 8px 0 25px 0; min-height: 1.2rem;
@@ -64,14 +100,18 @@
         .skill-list li::before { content: "•"; color: var(--neon); }
 
         .info-card {
-            background: rgba(0,0,0,0.15); border-radius: 10px;
+            background: rgba(0,0,0,0.05); border-radius: 10px;
             padding: 15px; margin-bottom: 15px; border-left: 3px solid transparent;
         }
+        [data-theme="dark"] .info-card { background: rgba(0,0,0,0.15); }
         .info-card:hover { border-left-color: var(--accent); transform: translateX(5px); }
-        .card-head { display: flex; justify-content: space-between; align-items: baseline; }
-        .card-title { color: #fff; font-weight: 600; font-size: 0.95rem; }
+        .card-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+        .card-title-group { display: flex; align-items: center; gap: 10px; }
+        .card-title { color: var(--title-color); font-weight: 600; font-size: 0.95rem; }
         .card-sub { font-size: 0.8rem; color: var(--sub); margin-top: 4px; }
         .card-date { font-family: 'Fira Code'; font-size: 0.7rem; color: var(--success); }
+
+        .org-logo { width: 18px; height: 18px; object-fit: contain; }
 
         .tag-box { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
         .tag {
@@ -79,6 +119,12 @@
             background: rgba(122, 162, 247, 0.1); color: var(--accent);
             border-radius: 4px; border: 1px solid rgba(122, 162, 247, 0.2);
         }
+
+        .social-links { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }
+        .social-item { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .social-logo { width: 16px; height: 16px; }
+        [data-theme="dark"] .social-logo.github-icon { filter: invert(1); }
+        .social-link-text { font-family: 'Fira Code'; font-size: 0.8rem; color: var(--neon); }
 
         a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
         a:hover { border-bottom-color: var(--accent); }
@@ -88,27 +134,29 @@
             color: var(--sub); text-align: right;
         }
 
-        @keyframes blink { 50% { opacity: 0; } }
         @media (max-width: 800px) { .content { grid-template-columns: 1fr; padding: 30px; } }
     </style>
 </head>
-<body>
+<body data-theme="dark">
 
     <div class="card">
-        <div class="header">
+        <header class="header">
             <div class="dots">
                 <div class="dot" style="background: #ff5f56;"></div>
                 <div class="dot" style="background: #ffbd2e;"></div>
                 <div class="dot" style="background: #27c93f;"></div>
             </div>
-            <div class="lang-switch">
-                <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-                <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+            <div class="controls">
+                <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="Temayı Değiştir">🌓</button>
+                <div class="lang-switch">
+                    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+                    <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+                </div>
             </div>
-        </div>
+        </header>
 
-        <div class="content">
-            <div class="left-col">
+        <main class="content">
+            <section class="left-col">
                 <h1 data-en="Ali Deniz Tartma" data-tr="Ali Deniz Tartma">Ali Deniz Tartma</h1>
                 <div class="typing-wrapper">
                     <span id="type-text"></span><span style="animation: blink 1s infinite;">_</span>
@@ -116,7 +164,7 @@
 
                 <p class="bio" id="bio-text"></p>
 
-                <div class="section-title" data-en="Core Interests" data-tr="Odak Alanları">Core Interests</div>
+                <h2 class="section-title" data-en="Core Interests" data-tr="Odak Alanları">Core Interests</h2>
                 <ul class="skill-list">
                     <li data-en="Exploring Linux-based systems" data-tr="Linux tabanlı sistemleri keşfetmek"></li>
                     <li data-en="Contributing to FOSS projects" data-tr="FOSS projelerine katkıda bulunmak"></li>
@@ -127,14 +175,28 @@
                 <div class="tag-box">
                     <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Git</span><span class="tag">Bash</span><span class="tag">After Effects</span>
                 </div>
-            </div>
 
-            <div class="right-col">
-                <div class="section-title" data-en="Contributions" data-tr="Katkılar">Contributions</div>
+                <div class="social-links">
+                    <a href="https://github.com/alideniztartma" class="social-item" target="_blank" rel="noopener">
+                        <img src="https://cdn.simpleicons.org/github" class="social-logo github-icon" alt="GitHub">
+                        <span class="social-link-text">~/github</span>
+                    </a>
+                    <a href="https://mastodon.social/@aliden7z" class="social-item" target="_blank" rel="noopener">
+                        <img src="https://cdn.simpleicons.org/mastodon/6364FF" class="social-logo" alt="Mastodon">
+                        <span class="social-link-text">~/mastodon</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="right-col">
+                <h2 class="section-title" data-en="Contributions" data-tr="Katkılar">Contributions</h2>
 
                 <div class="info-card">
                     <div class="card-head">
-                        <span class="card-title">NASA F' (F Prime)</span>
+                        <div class="card-title-group">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" class="org-logo" alt="NASA Logo">
+                            <span class="card-title">NASA F' (F Prime)</span>
+                        </div>
                         <span class="card-date">2026</span>
                     </div>
                     <div class="card-sub" data-en="Improved technical documentation & consistency." data-tr="Teknik dökümantasyon ve tutarlılık iyileştirmeleri."></div>
@@ -142,17 +204,31 @@
 
                 <div class="info-card">
                     <div class="card-head">
-                        <span class="card-title">Meta / React</span>
+                        <div class="card-title-group">
+                            <img src="https://developer.mozilla.org/favicon-48x48.png" class="org-logo" alt="MDN Logo">
+                            <span class="card-title">Mozilla / MDN</span>
+                        </div>
+                        <span class="card-date">2026</span>
+                    </div>
+                    <div class="card-sub" data-en="Fixed RTT glossary errors & technical inconsistencies." data-tr="RTT sözlük hataları ve teknik tutarsızlıklar düzeltildi."></div>
+                </div>
+
+                <div class="info-card">
+                    <div class="card-head">
+                        <div class="card-title-group">
+                            <img src="https://cdn.simpleicons.org/react/61DAFB" class="org-logo" alt="React Logo">
+                            <span class="card-title">Meta / React</span>
+                        </div>
                         <span class="card-date">2026</span>
                     </div>
                     <div class="card-sub" data-en="Refined documentation and fixed codebase typos." data-tr="Dökümantasyon düzenlemeleri ve yazım hatası düzeltmeleri."></div>
                 </div>
 
-                <div class="section-title" data-en="Projects" data-tr="Projeler">Projects</div>
+                <h2 class="section-title" data-en="Projects" data-tr="Projeler">Projects</h2>
 
                 <div class="info-card">
                     <div class="card-head">
-                        <span class="card-title"><a href="#">Vessel Journal</a></span>
+                        <span class="card-title"><a href="https://github.com/alideniztartma/vessel-journal" target="_blank">Vessel Journal</a></span>
                         <span class="card-date">Active</span>
                     </div>
                     <div class="card-sub" data-en="A minimalist, cross-platform journaling tool." data-tr="Minimalist, platformlar arası günlük aracı."></div>
@@ -160,77 +236,62 @@
 
                 <div class="info-card">
                     <div class="card-head">
-                        <span class="card-title"><a href="#">Termind</a></span>
+                        <span class="card-title"><a href="https://github.com/alideniztartma/termind" target="_blank">Termind</a></span>
                         <span class="card-date">Active</span>
                     </div>
                     <div class="card-sub" data-en="Keyboard-centric CLI task manager." data-tr="Klavye odaklı CLI görev yöneticisi."></div>
                 </div>
 
-                <div class="footer">
+                <footer class="footer">
                     ~/contact <a href="mailto:tartma@alideniz.me" style="color:var(--neon)">tartma@alideniz.me</a>
-                </div>
-            </div>
-        </div>
+                </footer>
+            </section>
+        </main>
     </div>
 
     <script>
+        function toggleTheme() {
+            const body = document.body;
+            const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.body.setAttribute('data-theme', savedTheme || systemTheme);
+
         const texts = {
             en: ["Open Source Enthusiast", "Linux User", "Developer"],
             tr: ["Açık Kaynak Gönüllüsü", "Linux Kullanıcısı", "Geliştirici"]
         };
 
         const age = new Date().getFullYear() - 2011;
-
         const bios = {
-            en: `A ${age}-year-old high school student and open-source enthusiast. I enjoy building functional tools and contributing to the global developer community.`,
+            en: `I am a ${age}-year-old high school student and open-source enthusiast. I enjoy building functional tools and contributing to the global developer community.`,
             tr: `${age} yaşında bir lise öğrencisi ve açık kaynak meraklısıyım. İşlevsel araçlar geliştirmeyi ve küresel yazılım topluluğuna katkıda bulunmayı seviyorum.`
         };
 
-        let currentLang = 'en';
-        let wordIdx = 0;
-        let charIdx = 0;
-        let isDeleting = false;
-        let timeout;
+        let currentLang = 'en'; let wordIdx = 0; let charIdx = 0; let isDeleting = false; let timeout;
 
         function setLang(lang) {
             currentLang = lang;
-            document.querySelectorAll('[data-en]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`);
-            });
-
+            document.querySelectorAll('[data-en]').forEach(el => el.textContent = el.getAttribute(`data-${lang}`));
             document.getElementById('bio-text').textContent = bios[lang];
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
-
-            wordIdx = 0; charIdx = 0; isDeleting = false;
-            clearTimeout(timeout);
-            type();
+            wordIdx = 0; charIdx = 0; isDeleting = false; clearTimeout(timeout); type();
         }
 
         function type() {
             const currentWord = texts[currentLang][wordIdx];
             const target = document.getElementById('type-text');
-
-            if (isDeleting) {
-                target.textContent = currentWord.substring(0, charIdx--);
-            } else {
-                target.textContent = currentWord.substring(0, charIdx++);
-            }
-
+            target.textContent = isDeleting ? currentWord.substring(0, charIdx--) : currentWord.substring(0, charIdx++);
             let speed = isDeleting ? 30 : 70;
-
-            if (!isDeleting && charIdx === currentWord.length + 1) {
-                isDeleting = true;
-                speed = 2000;
-            } else if (isDeleting && charIdx === 0) {
-                isDeleting = false;
-                wordIdx = (wordIdx + 1) % texts[currentLang].length;
-                speed = 500;
-            }
-
+            if (!isDeleting && charIdx === currentWord.length + 1) { isDeleting = true; speed = 2000; }
+            else if (isDeleting && charIdx === 0) { isDeleting = false; wordIdx = (wordIdx + 1) % texts[currentLang].length; speed = 500; }
             timeout = setTimeout(type, speed);
         }
-
         setLang('en');
     </script>
 </body>
