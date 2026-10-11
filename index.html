@@ -1,330 +1,433 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Deniz Tartma | Open Source & Linux</title>
-
-    <meta name="description" content="Genç yaşta NASA, MDN ve React projelerine katkı sağlayan açık kaynak geliştirici. 15 yaşında, Linux ve FOSS dünyasına merak duyan Ali Deniz Tartma'nın portfolyosu.">
-    <meta name="keywords" content="Ali Deniz Tartma, Yazılım, Portfolyo, Open Source, Linux, Arch Linux, React, NASA F Prime, GitHub Contributor, Geliştirici">
-    <meta name="author" content="Ali Deniz Tartma">
-    <link rel="canonical" href="https://alideniz.me" />
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Ali Deniz Tartma",
-      "url": "https://alideniz.me",
-      "description": "Genç yaşta NASA, Meta ve MDN projelerine katkı sağlayan açık kaynak geliştirici.",
-      "jobTitle": "Open Source Contributor",
-      "birthDate": "2011",
-      "sameAs": [
-        "https://github.com/alideniztartma",
-        "https://mastodon.social/@aliden7z"
-      ]
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Deniz Tartma — Open source, in motion.</title>
+  <meta name="description" content="Ali Deniz Tartma'nın açık kaynak katkıları, projeleri ve geliştirici yolculuğu.">
+  <meta name="author" content="Ali Deniz Tartma">
+  <link rel="canonical" href="https://alideniz.me">
+  <meta property="og:title" content="Ali Deniz Tartma — Open source, in motion.">
+  <meta property="og:description" content="Açık kaynak katkıları, bağımsız projeler ve geliştirici yolculuğu.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alideniz.me">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ali Deniz Tartma",
+    "url": "https://alideniz.me",
+    "jobTitle": "Open Source Contributor",
+    "sameAs": ["https://github.com/alideniztartma", "https://mastodon.social/@aliden7z"]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0a0d12;
+      --surface: #10151c;
+      --surface-2: #151d26;
+      --text: #eef3f6;
+      --muted: #96a3ad;
+      --faint: #50606c;
+      --line: rgba(206, 232, 239, .14);
+      --cyan: #71e4dc;
+      --lime: #c2ed77;
+      --violet: #b49aff;
+      --warm: #ffcf8b;
+      --shadow: rgba(0, 0, 0, .35);
+      --grid: rgba(188, 223, 228, .055);
     }
-    </script>
 
-    <meta property="og:title" content="Ali Deniz Tartma | Açık Kaynak Geliştirici">
-    <meta property="og:description" content="NASA, React ve MDN projelerine katkı sunan genç bir geliştiricinin dünyasına göz atın.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alideniz.me">
+    [data-theme="light"] {
+      --bg: #edf3f2;
+      --surface: #f9fcfb;
+      --surface-2: #e8f1ef;
+      --text: #122027;
+      --muted: #52636a;
+      --faint: #819196;
+      --line: rgba(18, 32, 39, .13);
+      --cyan: #008d8a;
+      --lime: #507f1a;
+      --violet: #6844c2;
+      --warm: #a46714;
+      --shadow: rgba(31, 63, 72, .16);
+      --grid: rgba(18, 53, 60, .07);
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0f111a; --panel: #161925; --fg: #a9b1d6;
-            --accent: #7aa2f7; --neon: #bb9af7; --sub: #565f89;
-            --success: #9ece6a; --border: rgba(122, 162, 247, 0.1);
-            --header-bg: rgba(0,0,0,0.3);
-            --card-shadow: rgba(0,0,0,0.5);
-            --title-color: #fff;
-        }
-
-        [data-theme="light"] {
-            --bg: #e5e9f0; --panel: #ffffff; --fg: #4c566a;
-            --accent: #5e81ac; --neon: #b48ead; --sub: #96a1b1;
-            --success: #a3be8c; --border: rgba(0, 0, 0, 0.05);
-            --header-bg: rgba(0,0,0,0.05);
-            --card-shadow: rgba(0,0,0,0.1);
-            --title-color: #2e3440;
-        }
-
-        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        body {
-            background: var(--bg); color: var(--fg);
-            font-family: 'Inter', sans-serif; margin: 0;
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; padding: 20px; line-height: 1.5;
-        }
-
-        .card {
-            background: var(--panel); width: 100%; max-width: 850px;
-            border-radius: 16px; box-shadow: 0 30px 60px var(--card-shadow);
-            border: 1px solid var(--border); overflow: hidden;
-            animation: slideUp 0.8s ease-out;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .header {
-            background: var(--header-bg); padding: 12px 20px;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .dots { display: flex; gap: 6px; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; opacity: 0.8; }
-
-        .controls { display: flex; gap: 10px; align-items: center; }
-        .theme-toggle {
-            background: var(--bg); border: 1px solid var(--border);
-            color: var(--fg); padding: 5px 12px; border-radius: 8px;
-            cursor: pointer; font-family: 'Fira Code'; font-size: 0.75rem;
-        }
-
-        .lang-switch {
-            display: flex; gap: 5px; background: var(--bg);
-            padding: 4px; border-radius: 8px; border: 1px solid var(--border);
-        }
-        .lang-btn {
-            background: transparent; border: none; color: var(--sub);
-            padding: 4px 10px; cursor: pointer; border-radius: 6px;
-            font-family: 'Fira Code'; font-size: 0.7rem; font-weight: 600;
-        }
-        .lang-btn.active { background: var(--accent); color: white; }
-
-        .content { padding: 45px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; }
-
-        .profile h1 { margin: 0; font-size: 1.8rem; color: var(--title-color); font-weight: 700; letter-spacing: -0.5px; }
-        .typing-wrapper {
-            font-family: 'Fira Code'; color: var(--neon); font-size: 0.9rem;
-            margin: 8px 0 25px 0; min-height: 1.2rem;
-        }
-        .bio { font-size: 0.92rem; color: var(--fg); margin-bottom: 25px; opacity: 0.9; }
-
-        .section-title {
-            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px;
-            color: var(--accent); margin: 30px 0 15px 0; font-weight: 700;
-        }
-
-        .skill-list { list-style: none; padding: 0; margin: 0; font-size: 0.85rem; }
-        .skill-list li {
-            margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
-        }
-        .skill-list li::before { content: "•"; color: var(--neon); }
-
-        .info-card {
-            background: rgba(0,0,0,0.05); border-radius: 10px;
-            padding: 15px; margin-bottom: 15px; border-left: 3px solid transparent;
-        }
-        [data-theme="dark"] .info-card { background: rgba(0,0,0,0.15); }
-        .info-card:hover { border-left-color: var(--accent); transform: translateX(5px); }
-        .card-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-        .card-title-group { display: flex; align-items: center; gap: 10px; }
-        .card-title { font-weight: 600; font-size: 0.95rem; }
-        .card-title a { color: var(--title-color); text-decoration: none; }
-        .card-sub { font-size: 0.8rem; color: var(--sub); margin-top: 4px; }
-        .card-date { font-family: 'Fira Code'; font-size: 0.7rem; color: var(--success); }
-
-        .org-logo { width: 18px; height: 18px; object-fit: contain; }
-
-        .tag-box { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-        .tag {
-            font-family: 'Fira Code'; font-size: 0.65rem; padding: 2px 8px;
-            background: rgba(122, 162, 247, 0.1); color: var(--accent);
-            border-radius: 4px; border: 1px solid rgba(122, 162, 247, 0.2);
-        }
-
-        .social-links { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }
-        .social-item { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .social-logo { width: 16px; height: 16px; }
-        [data-theme="dark"] .social-logo.github-icon { filter: invert(1); }
-        .social-link-text { font-family: 'Fira Code'; font-size: 0.8rem; color: var(--neon); }
-
-        .footer {
-            margin-top: 30px; font-family: 'Fira Code'; font-size: 0.75rem;
-            color: var(--sub); text-align: right;
-        }
-
-        @media (max-width: 800px) { .content { grid-template-columns: 1fr; padding: 30px; } }
-    </style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 78% 10%, color-mix(in srgb, var(--violet) 12%, transparent), transparent 30rem),
+        radial-gradient(circle at 10% 62%, color-mix(in srgb, var(--cyan) 10%, transparent), transparent 28rem),
+        var(--bg);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+      transition: background .35s ease, color .35s ease;
+    }
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      opacity: .45;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 0%, var(--grid), transparent 42rem);
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid var(--lime); outline-offset: 5px; }
+    .shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { font: 600 .78rem "DM Mono", monospace; letter-spacing: .08em; text-decoration: none; }
+    .brand-mark { color: var(--cyan); }
+    .top-actions { display: flex; align-items: center; gap: 18px; }
+    .top-link, .icon-button {
+      color: var(--muted);
+      font: 500 .72rem "DM Mono", monospace;
+      text-decoration: none;
+      letter-spacing: .06em;
+    }
+    .top-link:hover { color: var(--text); }
+    .icon-button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: transparent;
+      cursor: pointer;
+    }
+    .icon-button:hover { color: var(--text); border-color: var(--cyan); }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+      gap: clamp(48px, 8vw, 124px);
+      min-height: 690px;
+      align-items: center;
+      padding: 86px 0 110px;
+    }
+    .hero-copy { max-width: 650px; }
+    .hero h1 {
+      max-width: 8ch;
+      margin: 0;
+      font: 700 clamp(4.6rem, 10vw, 8.6rem)/.88 "Bricolage Grotesque", sans-serif;
+      letter-spacing: -.085em;
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero-lede {
+      max-width: 47ch;
+      margin: 34px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font: 600 .76rem "DM Mono", monospace;
+      text-decoration: none;
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .button.primary { border-color: var(--cyan); color: var(--bg); background: var(--cyan); }
+    .button.secondary { color: var(--text); }
+    .button:hover { transform: translateY(-3px); border-color: var(--lime); }
+    .button.secondary:hover { background: var(--surface-2); }
+    .hero-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 48px; color: var(--faint); font: .68rem "DM Mono", monospace; }
+    .hero-meta strong { color: var(--lime); font-weight: 500; }
+    .signal-map {
+      position: relative;
+      min-height: 468px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 92%, transparent), color-mix(in srgb, var(--surface-2) 72%, transparent));
+      box-shadow: 0 30px 80px var(--shadow);
+      isolation: isolate;
+    }
+    .signal-map::before, .signal-map::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+    }
+    .signal-map::before { background: radial-gradient(circle at 50% 54%, color-mix(in srgb, var(--cyan) 12%, transparent), transparent 45%); }
+    .signal-map::after { border: 1px solid color-mix(in srgb, var(--cyan) 24%, transparent); border-radius: 22px; transform: scale(.92); }
+    .map-label { position: absolute; z-index: 2; color: var(--muted); font: .63rem "DM Mono", monospace; letter-spacing: .06em; }
+    .map-label.top { top: 20px; left: 22px; }
+    .map-label.bottom { bottom: 20px; right: 22px; color: var(--lime); }
+    .orbit { position: absolute; border: 1px solid var(--line); border-radius: 50%; transform: rotate(-22deg); }
+    .orbit.one { width: 80%; height: 45%; top: 27%; left: 10%; animation: orbit 14s linear infinite; }
+    .orbit.two { width: 59%; height: 72%; top: 14%; left: 22%; transform: rotate(63deg); animation: orbit 18s linear infinite reverse; }
+    .orbit.three { width: 36%; height: 88%; top: 6%; left: 32%; transform: rotate(22deg); opacity: .6; }
+    .node {
+      position: absolute;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      width: 84px;
+      height: 84px;
+      border: 1px solid var(--cyan);
+      border-radius: 50%;
+      color: var(--text);
+      background: color-mix(in srgb, var(--surface) 84%, transparent);
+      box-shadow: 0 16px 36px var(--shadow);
+      font: 500 .7rem "DM Mono", monospace;
+      animation: pulse 3.8s ease-in-out infinite;
+    }
+    .node.center { top: 42%; left: calc(50% - 42px); width: 96px; height: 96px; border-color: var(--lime); box-shadow: 0 18px 40px var(--shadow); }
+    .node.nasa { top: 17%; left: 18%; color: var(--warm); border-color: var(--warm); animation-delay: -.8s; }
+    .node.react { top: 19%; right: 14%; color: var(--violet); border-color: var(--violet); animation-delay: -1.7s; }
+    .node.mdn { bottom: 15%; right: 17%; color: var(--cyan); animation-delay: -2.6s; }
+    .node.python { bottom: 12%; left: 14%; color: var(--lime); border-color: var(--lime); animation-delay: -3.2s; }
+    .signal-line { position: absolute; z-index: 1; height: 1px; transform-origin: left; background: linear-gradient(90deg, transparent, var(--cyan), transparent); opacity: .45; }
+    .line-a { width: 45%; top: 42%; left: 24%; transform: rotate(29deg); }
+    .line-b { width: 38%; top: 49%; left: 54%; transform: rotate(-34deg); background: linear-gradient(90deg, transparent, var(--violet), transparent); }
+    .line-c { width: 40%; top: 59%; left: 20%; transform: rotate(-26deg); background: linear-gradient(90deg, transparent, var(--lime), transparent); }
+    .section { padding: 104px 0; border-top: 1px solid var(--line); }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 42px; }
+    .section-heading h2 { max-width: 12ch; margin: 0; font: 600 clamp(2.5rem, 5vw, 4.6rem)/.95 "Space Grotesk", sans-serif; letter-spacing: -.065em; }
+    .section-heading p { max-width: 33ch; margin: 0; color: var(--muted); }
+    .contributions { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
+    .contribution {
+      position: relative;
+      min-height: 190px;
+      padding: 28px 24px 28px 0;
+      border-bottom: 1px solid var(--line);
+      transition: background .25s ease, transform .25s ease;
+    }
+    .contribution:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 36px; }
+    .contribution:nth-child(even) { padding-left: 36px; }
+    .contribution:hover { background: color-mix(in srgb, var(--surface) 75%, transparent); transform: translateX(6px); }
+    .contribution:nth-child(even):hover { transform: translateX(6px); }
+    .contribution h3 { margin: 0; font-size: 1.05rem; }
+    .contribution h3 a { text-decoration: none; }
+    .contribution h3 a:hover { color: var(--cyan); }
+    .contribution p { max-width: 45ch; margin: 14px 0 0; color: var(--muted); font-size: .9rem; }
+    .contribution small { display: block; margin-bottom: 25px; color: var(--faint); font: .66rem "DM Mono", monospace; }
+    .contribution .mark { position: absolute; top: 27px; right: 26px; color: var(--lime); font: .68rem "DM Mono", monospace; }
+    .projects { display: grid; grid-template-columns: 1.3fr .7fr; gap: 18px; }
+    .project {
+      position: relative;
+      min-height: 260px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--surface);
+      transition: transform .3s ease, border-color .3s ease;
+    }
+    .project::after { position: absolute; right: -44px; bottom: -76px; width: 180px; height: 180px; content: ""; border: 1px solid var(--line); border-radius: 50%; }
+    .project:hover { transform: translateY(-5px); border-color: var(--cyan); }
+    .project.featured { background: linear-gradient(135deg, var(--surface), color-mix(in srgb, var(--violet) 12%, var(--surface))); }
+    .project h3 { margin: 0; font: 600 1.9rem "Bricolage Grotesque", sans-serif; letter-spacing: -.05em; }
+    .project p { max-width: 35ch; margin: 16px 0 0; color: var(--muted); }
+    .project-link { position: absolute; right: 28px; bottom: 26px; color: var(--lime); font: .7rem "DM Mono", monospace; text-decoration: none; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+    .tag { padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: .64rem "DM Mono", monospace; }
+    .footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px 0 44px; color: var(--muted); font: .68rem "DM Mono", monospace; }
+    .footer a { color: var(--cyan); text-decoration: none; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s cubic-bezier(.16, 1, .3, 1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    @keyframes orbit { to { transform: rotate(338deg); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+    @media (max-width: 800px) {
+      .shell { width: min(100% - 32px, 620px); }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 70px 0 88px; gap: 60px; }
+      .hero h1 { font-size: clamp(4.4rem, 20vw, 7.4rem); }
+      .signal-map { min-height: 390px; }
+      .section { padding: 76px 0; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 20px; }
+      .contributions, .projects { grid-template-columns: 1fr; }
+      .contribution:nth-child(odd) { border-right: 0; padding-right: 0; }
+      .contribution:nth-child(even) { padding-left: 0; }
+      .contribution:nth-child(even):hover { transform: translateX(6px); }
+      .footer { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
-<body data-theme="dark">
+<body>
+  <!--
+    THESIS: Open-source work is a living signal map, not a generic developer card.
+    OWN-WORLD: Graphite, cyan, lime, violet, coordinate lines, orbit paths, and editorial display type.
+    STORY: Visitors understand who Ali is, see proof in real contributions, then open the work on GitHub.
+    FIRST VIEWPORT: Oversized name and GitHub CTA sit left; an animated contribution constellation sits right.
+    FORM: Signal map portfolio, replacing the standard centered terminal-card arrangement.
+  -->
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Ali Deniz Tartma ana sayfa"><span class="brand-mark">/</span> alideniz.me</a>
+      <nav class="top-actions" aria-label="Ana navigasyon">
+        <a class="top-link" href="#contributions" data-en="Contributions" data-tr="Katkılar">Katkılar</a>
+        <a class="top-link" href="#projects" data-en="Projects" data-tr="Projeler">Projeler</a>
+        <button class="icon-button" id="theme-btn" type="button" aria-label="Temayı değiştir">◐ <span data-en="theme" data-tr="tema">tema</span></button>
+      </nav>
+    </header>
 
-    <div class="card">
-        <header class="header">
-            <div class="dots">
-                <div class="dot" style="background: #ff5f56;"></div>
-                <div class="dot" style="background: #ffbd2e;"></div>
-                <div class="dot" style="background: #27c93f;"></div>
-            </div>
-            <div class="controls">
-                <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="Temayı Değiştir">🌓</button>
-                <div class="lang-switch">
-                    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-                    <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
-                </div>
-            </div>
-        </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <h1 id="hero-title">Ben Ali Deniz<span>.</span></h1>
+          <p class="hero-lede" id="hero-lede">Açık kaynakta öğrenen, üreten ve iz bırakan bir geliştirici. Linux sistemleri, topluluklar ve küçük fikirleri çalışan araçlara dönüştürmekle ilgileniyorum.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/alideniztartma" target="_blank" rel="noopener">GitHub'ı keşfet <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="#contributions">Katkıları gör <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-meta">
+            <span><strong>●</strong> <span data-en="open source contributor" data-tr="açık kaynak katkıcısı">açık kaynak katkıcısı</span></span>
+            <span><strong>TR / EN</strong> <span data-en="available" data-tr="destekleniyor">destekleniyor</span></span>
+          </div>
+        </div>
+        <div class="signal-map reveal" aria-label="Ali Deniz Tartma'nın açık kaynak katkılarını gösteren sinyal haritası">
+          <span class="map-label top">LIVE CONTRIBUTION MAP / 2025—</span>
+          <span class="map-label bottom">STATUS: CURIOUS</span>
+          <div class="orbit one"></div><div class="orbit two"></div><div class="orbit three"></div>
+          <div class="signal-line line-a"></div><div class="signal-line line-b"></div><div class="signal-line line-c"></div>
+          <div class="node center">ALI<br>DENİZ</div>
+          <div class="node nasa">NASA</div><div class="node react">REACT</div><div class="node mdn">MDN</div><div class="node python">PY</div>
+        </div>
+      </section>
 
-        <main class="content">
-            <section class="left-col">
-                <h1 data-en="Ali Deniz Tartma" data-tr="Ali Deniz Tartma">
-                    Ali Deniz Tartma
-                </h1>
-                <div class="typing-wrapper">
-                    <span id="type-text"></span><span style="animation: blink 1s infinite;">_</span>
-                </div>
+      <section class="section reveal" id="contributions" aria-labelledby="contributions-title">
+        <div class="section-heading">
+          <h2 id="contributions-title">Gerçek iş, açık iz.</h2>
+          <p>Katkılar küçük başlayabilir. Önemli olan onları görünür, kullanılabilir ve topluluğa geri döndürülebilir kılmak.</p>
+        </div>
+        <div class="contributions">
+          <article class="contribution">
+            <small>NASA / F PRIME · PR #294</small>
+            <h3><a href="https://github.com/nasa/fprime-gds/pull/294" target="_blank" rel="noopener">Python 3.10 uyumluluğu <span aria-hidden="true">↗</span></a></h3>
+            <p>datetime.UTC kullanımını timezone.utc ile değiştirerek uyumluluk hatasını giderdim.</p>
+            <span class="mark">01</span>
+          </article>
+          <article class="contribution">
+            <small>MOZILLA / MDN · PR #43655</small>
+            <h3><a href="https://github.com/mdn/content/pull/43655" target="_blank" rel="noopener">RTT sözlüğü düzeltmeleri <span aria-hidden="true">↗</span></a></h3>
+            <p>RTT sözlüğündeki hataları ve teknik tutarsızlıkları düzelttim.</p>
+            <span class="mark">02</span>
+          </article>
+          <article class="contribution">
+            <small>META / REACT · PR #36170</small>
+            <h3><a href="https://github.com/facebook/react/pull/36170" target="_blank" rel="noopener">Dokümantasyon iyileştirmeleri <span aria-hidden="true">↗</span></a></h3>
+            <p>DESIGN_GOALS dokümantasyonunu ve yazım hatalarını iyileştirdim.</p>
+            <span class="mark">03</span>
+          </article>
+          <article class="contribution">
+            <small>AWESOME PYTHON · PR #3014</small>
+            <h3><a href="https://github.com/vinta/awesome-python/pull/3014" target="_blank" rel="noopener">SQLite yazım düzeltmesi <span aria-hidden="true">↗</span></a></h3>
+            <p>Veritabanı sürücüleri bölümündeki SQLite yazımını düzelttim.</p>
+            <span class="mark">04</span>
+          </article>
+        </div>
+      </section>
 
-                <p class="bio" id="bio-text">
-                    15 yaşında açık kaynak gönüllüsü, Linux kullanıcısı ve geliştirici. NASA, MDN ve React projelerine katkıda bulunuyor.
-                </p>
+      <section class="section reveal" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <h2 id="projects-title">Kendi sinyalin.</h2>
+          <p>Katkı yapmak kadar, merakı küçük ve paylaşılabilir araçlara dönüştürmek de yolculuğun bir parçası.</p>
+        </div>
+        <div class="projects">
+          <article class="project featured">
+            <h3>GitCanvas</h3>
+            <p>Her pikselin bir PR olduğu sosyal sanat platformu. Kod, renk ve topluluk aynı tuvalde buluşuyor.</p>
+            <div class="tags"><span class="tag">pixel art</span><span class="tag">community</span><span class="tag">open source</span></div>
+            <a class="project-link" href="https://github.com/alideniztartma/GitCanvas" target="_blank" rel="noopener">projeyi aç ↗</a>
+          </article>
+          <article class="project">
+            <h3>Vessel Journal</h3>
+            <p>Minimalist, platformlar arası günlük aracı.</p>
+            <div class="tags"><span class="tag">journal</span><span class="tag">cross-platform</span></div>
+            <a class="project-link" href="https://github.com/alideniztartma/vessel-journal" target="_blank" rel="noopener">projeyi aç ↗</a>
+          </article>
+        </div>
+      </section>
+    </main>
 
-                <h2 class="section-title" data-en="Core Interests" data-tr="İlgi Alanları">Core Interests</h2>
-                <ul class="skill-list">
-                    <li data-en="Exploring Linux-based systems" data-tr="Linux tabanlı sistemleri keşfetmek">Linux tabanlı sistemleri keşfetmek</li>
-                    <li data-en="Contributing to FOSS projects" data-tr="FOSS projelerine katkıda bulunmak">FOSS projelere katkıda bulunmak</li>
-                    <li data-en="Visual storytelling & video editing" data-tr="Görsel hikaye anlatımı ve video kurgu">Görsel hikaye anlatımı ve video kurgu</li>
-                    <li data-en="Building minimalist CLI & GUI tools" data-tr="Minimalist CLI ve GUI araçları geliştirmek">Minimalist CLI ve GUI araçları geliştirmek</li>
-                </ul>
+    <footer class="footer">
+      <span>© Ali Deniz Tartma · <a href="mailto:tartma@alideniz.me">tartma@alideniz.me</a></span>
+      <span><a href="https://mastodon.social/@aliden7z" target="_blank" rel="noopener">Mastodon ↗</a> · Linux enthusiast</span>
+    </footer>
+  </div>
 
-                <div class="tag-box">
-                    <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Git</span><span class="tag">Bash</span><span class="tag">Arch Linux</span>
-                </div>
+  <script>
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem("theme");
+    const preferredTheme = savedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    root.dataset.theme = preferredTheme;
 
-                <div class="social-links">
-                    <a href="https://github.com/alideniztartma" class="social-item" target="_blank" rel="noopener">
-                        <img src="https://cdn.simpleicons.org/github" class="social-logo github-icon" alt="Ali Deniz Tartma GitHub Sayfası">
-                        <span class="social-link-text">~/github</span>
-                    </a>
-                    <a href="https://mastodon.social/@aliden7z" class="social-item" target="_blank" rel="noopener">
-                        <img src="https://cdn.simpleicons.org/mastodon/6364FF" class="social-logo" alt="Ali Deniz Tartma Mastodon Profili">
-                        <span class="social-link-text">~/mastodon</span>
-                    </a>
-                </div>
-            </section>
+    document.getElementById("theme-btn").addEventListener("click", () => {
+      const theme = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = theme;
+      localStorage.setItem("theme", theme);
+    });
 
-            <section class="right-col">
-                <h2 class="section-title" data-en="Contributions" data-tr="Katkılar">Katkılar</h2>
+    const userLang = navigator.language.toLowerCase().startsWith("tr") ? "tr" : "en";
+    const copy = {
+      tr: {
+        title: "Ali Deniz Tartma — Açık kaynak, hareket halinde.",
+        description: "Ali Deniz Tartma'nın açık kaynak katkıları, projeleri ve geliştirici yolculuğu.",
+        lede: "Açık kaynakta öğrenen, üreten ve iz bırakan bir geliştirici. Linux sistemleri, topluluklar ve küçük fikirleri çalışan araçlara dönüştürmekle ilgileniyorum.",
+        contributions: "Gerçek iş, açık iz.",
+        contributionIntro: "Katkılar küçük başlayabilir. Önemli olan onları görünür, kullanılabilir ve topluluğa geri döndürülebilir kılmak.",
+        projects: "Kendi sinyalin.",
+        projectIntro: "Katkı yapmak kadar, merakı küçük ve paylaşılabilir araçlara dönüştürmek de yolculuğun bir parçası."
+      },
+      en: {
+        title: "Ali Deniz Tartma — Open source, in motion.",
+        description: "Ali Deniz Tartma's open-source contributions, projects, and developer journey.",
+        lede: "A developer learning, building, and leaving a trace in open source. I care about Linux systems, communities, and turning small ideas into working tools.",
+        contributions: "Real work, open trace.",
+        contributionIntro: "Contributions can start small. What matters is making them visible, useful, and available to the community.",
+        projects: "Make your signal.",
+        projectIntro: "Turning curiosity into small, shareable tools is as much a part of the journey as contributing."
+      }
+    };
+    function setLanguage(lang) {
+      const selected = copy[lang];
+      document.documentElement.lang = lang;
+      document.title = selected.title;
+      document.querySelector('meta[name="description"]').content = selected.description;
+      document.getElementById("hero-lede").textContent = selected.lede;
+      document.getElementById("contributions-title").textContent = selected.contributions;
+      document.getElementById("contributions-title").nextElementSibling.textContent = selected.contributionIntro;
+      document.getElementById("projects-title").textContent = selected.projects;
+      document.getElementById("projects-title").nextElementSibling.textContent = selected.projectIntro;
+      document.querySelectorAll("[data-en]").forEach((element) => {
+        element.textContent = element.dataset[lang];
+      });
+    }
+    setLanguage(userLang);
 
-                <div class="info-card">
-                    <div class="card-head">
-                        <div class="card-title-group">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" class="org-logo" alt="NASA F Prime Projesi Katkısı">
-                            <span class="card-title"><a href="https://github.com/nasa/fprime-gds/pull/294" target="_blank">NASA F' (F Prime)</a></span>
-                        </div>
-                        <span class="card-date">#294</span>
-                    </div>
-                    <div class="card-sub" data-en="Fixed Python 3.10 compatibility by replacing datetime.UTC with timezone.utc." data-tr="datetime.UTC kullanımını timezone.utc ile değiştirerek Python 3.10 uyumluluk hatası giderildi.">datetime.UTC kullanımını timezone.utc ile değiştirerek Python 3.10 uyumluluk hatası giderildi.</div>
-                </div>
-                <div class="info-card">
-                    <div class="card-head">
-                        <div class="card-title-group">
-                            <img src="https://developer.mozilla.org/favicon-48x48.png" class="org-logo" alt="MDN Web Docs RTT Düzenlemesi">
-                            <span class="card-title"><a href="https://github.com/mdn/content/pull/43655" target="_blank">Mozilla / MDN</a></span>
-                        </div>
-                        <span class="card-date">#43655</span>
-                    </div>
-                    <div class="card-sub" data-en="Corrected RTT glossary and technical inconsistencies." data-tr="RTT sözlük hataları ve teknik tutarsızlıklar düzeltildi.">RTT sözlük hataları ve teknik tutarsızlıklar düzeltildi.</div>
-                </div>
-
-                <div class="info-card">
-                    <div class="card-head">
-                        <div class="card-title-group">
-                            <img src="https://cdn.simpleicons.org/react/61DAFB" class="org-logo" alt="Meta React Kütüphanesi Katkısı">
-                            <span class="card-title"><a href="https://github.com/facebook/react/pull/36170" target="_blank">Meta / React</a></span>
-                        </div>
-                        <span class="card-date">#36170</span>
-                    </div>
-                    <div class="card-sub" data-en="Improved DESIGN_GOALS documentation and typos." data-tr="Dökümantasyon düzenlemeleri ve yazım hatası düzeltmeleri.">Dökümantasyon düzenlemeleri ve yazım hatası düzeltmeleri.</div>
-                </div>
-
-                <div class="info-card">
-                    <div class="card-head">
-                        <div class="card-title-group">
-                            <img src="https://cdn.simpleicons.org/python/3776AB" class="org-logo" alt="Awesome Python Listesi SQLite Düzenlemesi">
-                            <span class="card-title"><a href="https://github.com/vinta/awesome-python/pull/3014" target="_blank">Awesome Python</a></span>
-                        </div>
-                        <span class="card-date">#3014</span>
-                    </div>
-                    <div class="card-sub" data-en="SQLite casing fix in database drivers section." data-tr="Veritabanı sürücüleri bölümünde SQLite yazımı düzeltildi.">Veritabanı sürücüleri bölümünde SQLite yazımı düzeltildi.</div>
-                </div>
-
-                <h2 class="section-title" data-en="Projects" data-tr="Projeler">Projeler</h2>
-
-                <div class="info-card">
-                    <div class="card-head">
-                        <span class="card-title"><a href="https://github.com/alideniztartma/GitCanvas" target="_blank">GitCanvas</a></span>
-                        <span class="card-date">Latest</span>
-                    </div>
-                    <div class="card-sub" data-en="A pixel art canvas where every pixel is a PR." data-tr="Her pikselin bir PR olduğu sosyal sanat platformu.">Her pikselin bir PR olduğu sosyal sanat platformu.</div>
-                </div>
-
-                <div class="info-card">
-                    <div class="card-head">
-                        <span class="card-title"><a href="https://github.com/alideniztartma/vessel-journal" target="_blank">Vessel Journal</a></span>
-                        <span class="card-date">Active</span>
-                    </div>
-                    <div class="card-sub" data-en="Minimalist, cross-platform journaling tool." data-tr="Minimalist, platformlar arası günlük aracı.">Minimalist, platformlar arası günlük aracı.</div>
-                </div>
-
-                <footer class="footer">
-                    ~/contact <a href="mailto:tartma@alideniz.me" style="color:var(--neon); text-decoration: none;">tartma@alideniz.me</a>
-                </footer>
-            </section>
-        </main>
-    </div>
-
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
         }
-
-        const savedTheme = localStorage.getItem('theme');
-        const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        document.body.setAttribute('data-theme', savedTheme || systemTheme);
-
-        const texts = {
-            en: ["Open Source Enthusiast", "Linux User", "Developer"],
-            tr: ["Açık Kaynak Gönüllüsü", "Linux Kullanıcısı", "Geliştirici"]
-        };
-
-        const age = new Date().getFullYear() - 2011;
-        const bios = {
-            en: `I am a ${age}-year-old 9th-grade student and open-source enthusiast. I focus on Linux systems and contributing to the global developer community.`,
-            tr: `${age} yaşında 10. sınıf öğrencisiyim. Linux sistemlerine ve yazılım topluluğuna katkıda bulunmaya odaklanıyorum.`
-        };
-
-        let currentLang = 'en'; let wordIdx = 0; let charIdx = 0; let isDeleting = false; let timeout;
-
-        function setLang(lang) {
-            currentLang = lang;
-            document.querySelectorAll('[data-en]').forEach(el => el.textContent = el.getAttribute(`data-${lang}`));
-            document.getElementById('bio-text').textContent = bios[lang];
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
-            wordIdx = 0; charIdx = 0; isDeleting = false; clearTimeout(timeout); type();
-        }
-
-        function type() {
-            const currentWord = texts[currentLang][wordIdx];
-            const target = document.getElementById('type-text');
-            target.textContent = isDeleting ? currentWord.substring(0, charIdx--) : currentWord.substring(0, charIdx++);
-            let speed = isDeleting ? 30 : 70;
-            if (!isDeleting && charIdx === currentWord.length + 1) { isDeleting = true; speed = 2000; }
-            else if (isDeleting && charIdx === 0) { isDeleting = false; wordIdx = (wordIdx + 1) % texts[currentLang].length; speed = 500; }
-            timeout = setTimeout(type, speed);
-        }
-
-        // AUTO LANGUAGE DETECTION
-        const userLang = navigator.language.startsWith('tr') ? 'tr' : 'en';
-        setLang(userLang);
-    </script>
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  </script>
 </body>
 </html>
