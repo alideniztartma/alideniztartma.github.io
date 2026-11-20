@@ -113,16 +113,16 @@
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
       gap: clamp(48px, 8vw, 124px);
-      min-height: 690px;
+      min-height: 610px;
       align-items: center;
-      padding: 86px 0 110px;
+      padding: 64px 0 78px;
     }
     .hero-copy { max-width: 650px; }
     .hero h1 {
       max-width: 8ch;
       margin: 0;
-      font: 700 clamp(4.6rem, 10vw, 8.6rem)/.88 "Bricolage Grotesque", sans-serif;
-      letter-spacing: -.085em;
+      font: 700 clamp(4.6rem, 10vw, 8.6rem)/.92 "Bricolage Grotesque", sans-serif;
+      letter-spacing: -.045em;
     }
     .hero h1 span { color: var(--cyan); }
     .hero-lede {
@@ -199,15 +199,15 @@
     .line-a { width: 45%; top: 42%; left: 24%; transform: rotate(29deg); }
     .line-b { width: 38%; top: 49%; left: 54%; transform: rotate(-34deg); background: linear-gradient(90deg, transparent, var(--violet), transparent); }
     .line-c { width: 40%; top: 59%; left: 20%; transform: rotate(-26deg); background: linear-gradient(90deg, transparent, var(--lime), transparent); }
-    .section { padding: 104px 0; border-top: 1px solid var(--line); }
-    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 42px; }
+    .section { padding: 76px 0; border-top: 1px solid var(--line); }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 28px; }
     .section-heading h2 { max-width: 12ch; margin: 0; font: 600 clamp(2.5rem, 5vw, 4.6rem)/.95 "Space Grotesk", sans-serif; letter-spacing: -.065em; }
     .section-heading p { max-width: 33ch; margin: 0; color: var(--muted); }
     .contributions { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
     .contribution {
       position: relative;
       min-height: 190px;
-      padding: 28px 24px 28px 0;
+      padding: 22px 24px 22px 0;
       border-bottom: 1px solid var(--line);
       transition: background .25s ease, transform .25s ease;
     }
@@ -218,8 +218,9 @@
     .contribution h3 { margin: 0; font-size: 1.05rem; }
     .contribution h3 a { text-decoration: none; }
     .contribution h3 a:hover { color: var(--cyan); }
-    .contribution p { max-width: 45ch; margin: 14px 0 0; color: var(--muted); font-size: .9rem; }
-    .contribution small { display: block; margin-bottom: 25px; color: var(--faint); font: .66rem "DM Mono", monospace; }
+    .contribution p { max-width: 45ch; margin: 10px 0 0; color: var(--muted); font-size: .9rem; }
+    .contribution small { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--faint); font: .66rem "DM Mono", monospace; }
+    .contribution-logo { width: 28px; height: 28px; flex: 0 0 28px; border: 1px solid var(--line); border-radius: 7px; object-fit: contain; background: var(--surface-2); }
     .contribution .mark { position: absolute; top: 27px; right: 26px; color: var(--lime); font: .68rem "DM Mono", monospace; }
     .projects { display: grid; grid-template-columns: 1.3fr .7fr; gap: 18px; }
     .project {
@@ -316,25 +317,25 @@
         </div>
         <div class="contributions">
           <article class="contribution">
-            <small>NASA / F PRIME · PR #294</small>
+            <small><img class="contribution-logo" src="https://github.com/nasa.png?size=64" alt="NASA logosu" loading="lazy" decoding="async"><span>NASA / F PRIME · PR #294</span></small>
             <h3><a href="https://github.com/nasa/fprime-gds/pull/294" target="_blank" rel="noopener">Python 3.10 uyumluluğu <span aria-hidden="true">↗</span></a></h3>
             <p>datetime.UTC kullanımını timezone.utc ile değiştirerek uyumluluk hatasını giderdim.</p>
             <span class="mark">01</span>
           </article>
           <article class="contribution">
-            <small>MOZILLA / MDN · PR #43655</small>
+            <small><img class="contribution-logo" src="https://github.com/mozilla.png?size=64" alt="Mozilla logosu" loading="lazy" decoding="async"><span>MOZILLA / MDN · PR #43655</span></small>
             <h3><a href="https://github.com/mdn/content/pull/43655" target="_blank" rel="noopener">RTT sözlüğü düzeltmeleri <span aria-hidden="true">↗</span></a></h3>
             <p>RTT sözlüğündeki hataları ve teknik tutarsızlıkları düzelttim.</p>
             <span class="mark">02</span>
           </article>
           <article class="contribution">
-            <small>META / REACT · PR #36170</small>
+            <small><img class="contribution-logo" src="https://github.com/facebook.png?size=64" alt="Meta logosu" loading="lazy" decoding="async"><span>META / REACT · PR #36170</span></small>
             <h3><a href="https://github.com/facebook/react/pull/36170" target="_blank" rel="noopener">Dokümantasyon iyileştirmeleri <span aria-hidden="true">↗</span></a></h3>
             <p>DESIGN_GOALS dokümantasyonunu ve yazım hatalarını iyileştirdim.</p>
             <span class="mark">03</span>
           </article>
           <article class="contribution">
-            <small>AWESOME PYTHON · PR #3014</small>
+            <small><img class="contribution-logo" src="https://github.com/vinta.png?size=64" alt="Vinta logosu" loading="lazy" decoding="async"><span>AWESOME PYTHON · PR #3014</span></small>
             <h3><a href="https://github.com/vinta/awesome-python/pull/3014" target="_blank" rel="noopener">SQLite yazım düzeltmesi <span aria-hidden="true">↗</span></a></h3>
             <p>Veritabanı sürücüleri bölümündeki SQLite yazımını düzelttim.</p>
             <span class="mark">04</span>
