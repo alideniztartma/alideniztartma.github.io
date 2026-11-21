@@ -186,15 +186,18 @@
     }
     .hero-copy { max-width: 860px; }
     .scroll-cue {
-      position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      color: var(--muted); font: 500 .66rem "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; text-decoration: none;
-      transition: color .2s ease;
+      position: absolute; left: 50%; bottom: 24px;
+      display: grid; place-items: center; width: 64px; height: 64px; margin-left: -32px;
+      border-radius: 50%; color: var(--cyan); text-decoration: none;
+      animation: bounce 2s cubic-bezier(.45, 0, .2, 1) infinite;
+      transition: background .2s ease, color .2s ease;
     }
-    .scroll-cue:hover { color: var(--cyan); }
-    .scroll-cue .mouse { position: relative; width: 22px; height: 34px; border: 1.5px solid currentColor; border-radius: 12px; }
-    .scroll-cue .mouse::after { content: ""; position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: var(--cyan); animation: scrolldot 1.8s ease-in-out infinite; }
-    @keyframes scrolldot { 0% { opacity: 0; transform: translateY(-3px); } 40% { opacity: 1; } 80%, 100% { opacity: 0; transform: translateY(10px); } }
+    .scroll-cue:hover { color: var(--lime); background: color-mix(in srgb, var(--cyan) 10%, transparent); animation-play-state: paused; }
+    .scroll-cue svg { fill: none; stroke: currentColor; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+    .scroll-cue path:first-child { opacity: .35; animation: chev 2s ease-in-out infinite; }
+    .scroll-cue path:last-child { animation: chev 2s ease-in-out .25s infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(12px); } }
+    @keyframes chev { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
     .grid-wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 80px); align-items: center; margin-top: 64px; }
     .grid-wrap .grid-card { width: 100%; max-width: 520px; justify-self: end; }
     .grid-wrap h3 { margin: 0; font: 600 clamp(1.8rem, 3.4vw, 2.6rem)/1 "Bricolage Grotesque", sans-serif; letter-spacing: -.04em; }
@@ -437,7 +440,7 @@
           </ul>
         </div>
 
-        <a class="scroll-cue" href="#contributions"><span class="mouse" aria-hidden="true"></span><span data-i18n="scroll">aşağı kaydır</span></a>
+        <a class="scroll-cue" href="#contributions" data-i18n-aria="scroll" aria-label="Katkılarıma kaydır"><svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false"><path d="M12 15 L24 27 L36 15" /><path d="M12 25 L24 37 L36 25" /></svg></a>
       </section>
 
       <section class="section reveal" id="contributions" aria-labelledby="contributions-title">
@@ -659,7 +662,7 @@
           lede: "16 yaşında, 10. sınıf öğrencisiyim. <strong>NASA F´Prime</strong>, <strong>React</strong> ve <strong>MDN</strong> gibi projelere katkı veriyor, açık kaynak uygulamalar geliştiriyorum. Linux sistemleri, topluluklar ve küçük fikirleri çalışan araçlara dönüştürmek ilgimi çekiyor.",
           ctaGithub: "GitHub'ıma bak", ctaContrib: "Katkıları gör",
           meta1: "NASA F´Prime katkıcısı", meta2: "linux", meta3: "Türkiye",
-          scroll: "aşağı kaydır", gridTitle: "Katkı ızgarası.", gridIntro: "Her kare bir gün. Renkli kareler birleştirilen PR'larım; birine dokun, detayı açılsın.",
+          scroll: "Katkılarıma kaydır", gridTitle: "Katkı ızgarası.", gridIntro: "Her kare bir gün. Renkli kareler birleştirilen PR'larım; birine dokun, detayı açılsın.",
           mapLabel: "Birleştirilen PR'ların takvimi", mapTop: "KATKI IZGARASI / MART–NİSAN 2026", tapHint: "kareye dokun",
           d1: "Pzt", d3: "Çar", d5: "Cum", d7: "Paz", months: ["", "Oca", "Şub", "Mar", "Nis", "May"],
           g1: "DESIGN_GOALS dokümantasyonu", g2: "Giriş dokümanı düzeltmeleri", g3: "Japon kültürü ipucu", g4: "SQLite yazım düzeltmesi",
@@ -690,7 +693,7 @@
           lede: "I'm a 16-year-old 10th-grade student. I contribute to projects like <strong>NASA F´Prime</strong>, <strong>React</strong> and <strong>MDN</strong>, and build open-source apps. I'm into Linux systems, communities, and turning small ideas into working tools.",
           ctaGithub: "View my GitHub", ctaContrib: "See contributions",
           meta1: "NASA F´Prime contributor", meta2: "linux", meta3: "Türkiye",
-          scroll: "scroll down", gridTitle: "Contribution grid.", gridIntro: "Each square is a day. Colored squares are my merged PRs; tap one to see the details.",
+          scroll: "Scroll to contributions", gridTitle: "Contribution grid.", gridIntro: "Each square is a day. Colored squares are my merged PRs; tap one to see the details.",
           mapLabel: "Calendar of merged PRs", mapTop: "CONTRIBUTION GRID / MAR–APR 2026", tapHint: "tap a square",
           d1: "Mon", d3: "Wed", d5: "Fri", d7: "Sun", months: ["", "Jan", "Feb", "Mar", "Apr", "May"],
           g1: "DESIGN_GOALS documentation", g2: "Introduction doc fixes", g3: "Japanese culture tip", g4: "SQLite spelling fix",
