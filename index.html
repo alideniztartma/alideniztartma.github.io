@@ -297,7 +297,7 @@
     .feature h3 span { color: var(--warm); }
     .feature p { max-width: 52ch; margin: 16px 0 0; color: var(--muted); }
     .feature code { padding: 1px 6px; border-radius: 6px; background: var(--surface-2); color: var(--text); font: .82em "DM Mono", monospace; }
-    .feature .button { margin-top: 26px; }
+    .feature-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
     .feature .button.warm { border-color: var(--warm); background: var(--warm); color: var(--on-accent); }
     .feature .button.warm:hover { background: var(--lime); border-color: var(--lime); }
     .feature-prs { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; counter-reset: pr; }
@@ -369,7 +369,19 @@
       .section-heading p { margin-top: 16px; }
       .contributions, .projects, .contact { grid-template-columns: 1fr; }
       .contribution:nth-child(odd) { border-right: 0; }
-      .feature { grid-template-columns: 1fr; padding: 28px 24px; gap: 26px; }
+      .feature { grid-template-columns: 1fr; padding: 22px 18px; gap: 18px; margin-bottom: 14px; border-radius: 18px; }
+      .feature::before { display: none; }
+      .feature-badge { margin-bottom: 12px; font-size: .62rem; }
+      .feature h3 { font-size: 1.9rem; }
+      .feature p { margin-top: 10px; font-size: .9rem; line-height: 1.5; }
+      .feature-actions { margin-top: 16px; gap: 8px; }
+      .feature-actions .button { min-height: 40px; padding: 0 14px; font-size: .68rem; }
+      .feature-prs { gap: 0; border-top: 1px solid var(--line); }
+      .feature-prs a { grid-template-columns: 52px 1fr; padding: 11px 2px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: none; }
+      .feature-prs a::before { display: none; }
+      .feature-prs small { grid-row: auto; color: var(--warm); }
+      .feature-prs .repo { display: none; }
+      .feature-prs b { overflow: hidden; font-size: .84rem; white-space: nowrap; text-overflow: ellipsis; }
       .contribution a { padding: 24px 4px 26px; }
       .contribution .mark { right: 4px; top: 28px; }
       .project { min-height: 230px; padding: 26px; }
@@ -451,14 +463,17 @@
           <div>
             <span class="feature-badge"><img src="https://github.com/nasa.png?size=48" alt="" width="24" height="24" loading="lazy">NASA · 4 PR · <span data-i18n="fBadge">öne çıkan katkı</span></span>
             <h3 id="feature-title"><span>NASA</span> F´Prime</h3>
-            <p data-i18n="fDesc">F´Prime, NASA JPL'in açık kaynak uçuş yazılımı çatısı; Mars'ta uçan Ingenuity helikopterinde de kullanıldı. Hem çatının kendisine hem de yer istasyonu aracı fprime-gds'e gönderdiğim 4 PR birleştirildi.</p>
-            <a class="button warm" href="https://github.com/search?q=author%3Aalideniztartma+org%3Anasa+is%3Apr&amp;type=pullrequests" target="_blank" rel="noopener"><span data-i18n="fCta">NASA PR'larımı gör</span> <span aria-hidden="true">↗</span></a>
+            <p data-i18n="fDesc">NASA JPL'in açık kaynak uçuş yazılımı çatısı; Mars'taki Ingenuity helikopterinde de kullanıldı. Çatıya ve yer istasyonu aracı fprime-gds'e gönderdiğim 4 PR birleştirildi.</p>
+            <div class="feature-actions">
+              <a class="button warm" href="https://github.com/search?q=author%3Aalideniztartma+org%3Anasa+is%3Apr&amp;type=pullrequests" target="_blank" rel="noopener"><span data-i18n="fCta">NASA PR'larımı gör</span> <span aria-hidden="true">↗</span></a>
+              <a class="button secondary" href="https://fprime.jpl.nasa.gov/devel/docs/user-manual/framework/supported-platforms/" target="_blank" rel="noopener"><span data-i18n="fSite">Rozetleri NASA sitesinde gör</span> <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
           <ol class="feature-prs">
-            <li><a href="https://github.com/nasa/fprime-gds/pull/294" target="_blank" rel="noopener"><small>FPRIME-GDS · #294</small><b data-i18n="n1">Python 3.10 uyumluluğu (timezone.utc)</b></a></li>
-            <li><a href="https://github.com/nasa/fprime/pull/5045" target="_blank" rel="noopener"><small>FPRIME · #5045</small><b data-i18n="n2">Referans projeler için derleme durumu rozetleri</b></a></li>
-            <li><a href="https://github.com/nasa/fprime/pull/5020" target="_blank" rel="noopener"><small>FPRIME · #5020</small><b data-i18n="n3">Port desenleri rehberinde yazım düzeltmeleri</b></a></li>
-            <li><a href="https://github.com/nasa/fprime/pull/4924" target="_blank" rel="noopener"><small>FPRIME · #4924</small><b data-i18n="n4">Giriş dokümanında tekrar ve biçim düzeltmesi</b></a></li>
+            <li><a href="https://github.com/nasa/fprime-gds/pull/294" target="_blank" rel="noopener"><small><span class="repo">FPRIME-GDS · </span>#294</small><b data-i18n="n1">Python 3.10 uyumluluğu</b></a></li>
+            <li><a href="https://github.com/nasa/fprime/pull/5045" target="_blank" rel="noopener"><small><span class="repo">FPRIME · </span>#5045</small><b data-i18n="n2">Platform sayfasına derleme rozetleri</b></a></li>
+            <li><a href="https://github.com/nasa/fprime/pull/5020" target="_blank" rel="noopener"><small><span class="repo">FPRIME · </span>#5020</small><b data-i18n="n3">Port rehberinde yazım düzeltmeleri</b></a></li>
+            <li><a href="https://github.com/nasa/fprime/pull/4924" target="_blank" rel="noopener"><small><span class="repo">FPRIME · </span>#4924</small><b data-i18n="n4">Giriş dokümanı düzeltmeleri</b></a></li>
           </ol>
         </article>
         <ol class="contributions">
@@ -576,8 +591,8 @@
           contribTitle: "Katkılarım.", contribIntro: "Katkılar küçük başlayabilir. Her PR ile biraz daha öğreniyorum.",
           c1t: "Python 3.10 uyumluluğu", c1d: "<code>datetime.UTC</code> yerine <code>timezone.utc</code> kullanarak Python 3.10 uyumluluk hatasını giderdim.",
           fBadge: "öne çıkan katkı", fCta: "NASA PR'larımı gör",
-          fDesc: "F´Prime, NASA JPL'in açık kaynak uçuş yazılımı çatısı; Mars'ta uçan Ingenuity helikopterinde de kullanıldı. Hem çatının kendisine hem de yer istasyonu aracı fprime-gds'e gönderdiğim 4 PR birleştirildi.",
-          n1: "Python 3.10 uyumluluğu (timezone.utc)", n2: "Referans projeler için derleme durumu rozetleri", n3: "Port desenleri rehberinde yazım düzeltmeleri", n4: "Giriş dokümanında tekrar ve biçim düzeltmesi",
+          fDesc: "NASA JPL'in açık kaynak uçuş yazılımı çatısı; Mars'taki Ingenuity helikopterinde de kullanıldı. Çatıya ve yer istasyonu aracı fprime-gds'e gönderdiğim 4 PR birleştirildi.", fSite: "Rozetleri NASA sitesinde gör",
+          n1: "Python 3.10 uyumluluğu", n2: "Platform sayfasına derleme rozetleri", n3: "Port rehberinde yazım düzeltmeleri", n4: "Giriş dokümanı düzeltmeleri",
           c5t: "Japon kültürü ipucu", c5d: "Japonca öğrenme uygulamasına yeni bir kültürel görgü kuralı ipucu ekledim.",
           c2t: "RTT sözlüğü düzeltmeleri", c2d: "RTT sözlük maddesindeki hataları ve teknik tutarsızlıkları düzelttim.",
           c3t: "Dokümantasyon iyileştirmeleri", c3d: "<code>DESIGN_GOALS</code> dokümantasyonunu iyileştirip yazım hatalarını düzelttim.",
@@ -603,8 +618,8 @@
           contribTitle: "Contributions.", contribIntro: "Contributions can start small. Every PR teaches me a little more.",
           c1t: "Python 3.10 compatibility", c1d: "Fixed a Python 3.10 compatibility bug by using <code>timezone.utc</code> instead of <code>datetime.UTC</code>.",
           fBadge: "featured contribution", fCta: "See my NASA PRs",
-          fDesc: "F´Prime is NASA JPL's open-source flight software framework, also used on the Ingenuity helicopter that flew on Mars. Four of my PRs were merged, both into the framework itself and its ground data system, fprime-gds.",
-          n1: "Python 3.10 compatibility (timezone.utc)", n2: "Build status badges for reference projects", n3: "Typo fixes in the port patterns guide", n4: "Duplicate word and formatting fix in the introduction",
+          fDesc: "NASA JPL's open-source flight software framework, also used on the Ingenuity helicopter on Mars. Four of my PRs were merged into the framework and its ground data system, fprime-gds.", fSite: "See the badges on NASA's site",
+          n1: "Python 3.10 compatibility", n2: "Build badges on the platforms page", n3: "Port guide typo fixes", n4: "Introduction doc fixes",
           c5t: "Japanese culture tip", c5d: "Added a new cultural etiquette tip to a Japanese learning app.",
           c2t: "RTT glossary fixes", c2d: "Fixed errors and technical inconsistencies in the RTT glossary entry.",
           c3t: "Documentation improvements", c3d: "Improved the <code>DESIGN_GOALS</code> documentation and fixed typos.",
