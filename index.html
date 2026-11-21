@@ -179,18 +179,31 @@
 
     /* Hero */
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
-      gap: clamp(40px, 7vw, 110px);
-      min-height: 600px;
-      align-items: center;
-      padding: 64px 0 80px;
+      position: relative;
+      display: flex; flex-direction: column; justify-content: center;
+      min-height: calc(100vh - 89px); min-height: calc(100svh - 89px);
+      padding: 56px 0 120px;
     }
+    .hero-copy { max-width: 860px; }
+    .scroll-cue {
+      position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      color: var(--muted); font: 500 .66rem "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; text-decoration: none;
+      transition: color .2s ease;
+    }
+    .scroll-cue:hover { color: var(--cyan); }
+    .scroll-cue .mouse { position: relative; width: 22px; height: 34px; border: 1.5px solid currentColor; border-radius: 12px; }
+    .scroll-cue .mouse::after { content: ""; position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: var(--cyan); animation: scrolldot 1.8s ease-in-out infinite; }
+    @keyframes scrolldot { 0% { opacity: 0; transform: translateY(-3px); } 40% { opacity: 1; } 80%, 100% { opacity: 0; transform: translateY(10px); } }
+    .grid-wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 80px); align-items: center; margin-top: 64px; }
+    .grid-wrap .grid-card { width: 100%; max-width: 520px; justify-self: end; }
+    .grid-wrap h3 { margin: 0; font: 600 clamp(1.8rem, 3.4vw, 2.6rem)/1 "Bricolage Grotesque", sans-serif; letter-spacing: -.04em; }
+    .grid-wrap p { max-width: 34ch; margin: 14px 0 0; color: var(--muted); }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--muted); font: 500 .72rem "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px color-mix(in srgb, var(--lime) 18%, transparent); }
     .hero h1 {
-      max-width: 8ch; margin: 0;
-      font: 700 clamp(4rem, 9.5vw, 8.4rem)/.92 "Bricolage Grotesque", sans-serif;
+      max-width: 11ch; margin: 0;
+      font: 700 clamp(4rem, 10.5vw, 9.6rem)/.92 "Bricolage Grotesque", sans-serif;
       letter-spacing: -.045em;
     }
     .hero h1 .dot { color: var(--cyan); }
@@ -353,7 +366,8 @@
     @media (max-width: 900px) {
       .shell { width: min(100% - 32px, 640px); }
       .top-link { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; padding: 52px 0 72px; gap: 52px; }
+      .hero { padding: 40px 0 110px; }
+      .grid-wrap { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; }
       .hero h1 { font-size: clamp(3.6rem, 18vw, 6.6rem); }
       .grid-card { padding: 18px; }
       .grid-cells, .grid-days { gap: 4px; }
@@ -423,83 +437,7 @@
           </ul>
         </div>
 
-        <div class="grid-card reveal">
-          <div class="grid-head"><span data-i18n="mapTop">KATKI IZGARASI / MART–NİSAN 2026</span><span>8 PR · MERGED</span></div>
-          <div class="grid-body">
-            <div class="grid-days" aria-hidden="true"><span data-i18n="d1">Pzt</span><span></span><span data-i18n="d3">Çar</span><span></span><span data-i18n="d5">Cum</span><span></span><span data-i18n="d7">Paz</span></div>
-            <div class="grid-cells" role="group" data-i18n-aria="mapLabel" aria-label="Birleştirilen PR'ların takvimi">
-              <span class="gc empty" style="animation-delay:0.00s"></span>
-              <span class="gc empty" style="animation-delay:0.09s"></span>
-              <span class="gc empty" style="animation-delay:0.18s"></span>
-              <span class="gc empty" style="animation-delay:0.27s"></span>
-              <span class="gc empty" style="animation-delay:0.36s"></span>
-              <span class="gc empty" style="animation-delay:0.45s"></span>
-              <span class="gc empty" style="animation-delay:0.54s"></span>
-              <span class="gc empty" style="animation-delay:0.09s"></span>
-              <span class="gc empty" style="animation-delay:0.18s"></span>
-              <span class="gc empty" style="animation-delay:0.27s"></span>
-              <span class="gc empty" style="animation-delay:0.36s"></span>
-              <span class="gc empty" style="animation-delay:0.45s"></span>
-              <span class="gc empty" style="animation-delay:0.54s"></span>
-              <span class="gc empty" style="animation-delay:0.63s"></span>
-              <span class="gc empty" style="animation-delay:0.18s"></span>
-              <span class="gc empty" style="animation-delay:0.27s"></span>
-              <span class="gc empty" style="animation-delay:0.36s"></span>
-              <span class="gc empty" style="animation-delay:0.45s"></span>
-              <span class="gc empty" style="animation-delay:0.54s"></span>
-              <span class="gc empty" style="animation-delay:0.63s"></span>
-              <span class="gc empty" style="animation-delay:0.72s"></span>
-              <span class="gc empty" style="animation-delay:0.27s"></span>
-              <span class="gc empty" style="animation-delay:0.36s"></span>
-              <span class="gc empty" style="animation-delay:0.45s"></span>
-              <span class="gc empty" style="animation-delay:0.54s"></span>
-              <span class="gc empty" style="animation-delay:0.63s"></span>
-              <span class="gc empty" style="animation-delay:0.72s"></span>
-              <span class="gc empty" style="animation-delay:0.81s"></span>
-              <button type="button" class="gc c-react" style="animation-delay:0.30s" aria-pressed="false" data-day="30" data-month="3" data-repo="react/react #36170" data-url="https://github.com/react/react/pull/36170" data-key="g1" aria-label="30 Mar 2026 · react/react #36170"></button>
-              <button type="button" class="gc c-nasa" style="animation-delay:0.42s" aria-pressed="false" data-day="31" data-month="3" data-repo="nasa/fprime #4924" data-url="https://github.com/nasa/fprime/pull/4924" data-key="g2" aria-label="31 Mar 2026 · nasa/fprime #4924"></button>
-              <button type="button" class="gc c-kana" style="animation-delay:0.54s" aria-pressed="false" data-day="1" data-month="4" data-repo="lingdojo/kana-dojo #11373" data-url="https://github.com/lingdojo/kana-dojo/pull/11373" data-key="g3" aria-label="1 Nis 2026 · lingdojo/kana-dojo #11373"></button>
-              <button type="button" class="gc c-py" style="animation-delay:0.66s" aria-pressed="false" data-day="2" data-month="4" data-repo="vinta/awesome-python #3014" data-url="https://github.com/vinta/awesome-python/pull/3014" data-key="g4" aria-label="2 Nis 2026 · vinta/awesome-python #3014"></button>
-              <span class="gc empty" style="animation-delay:0.72s"></span>
-              <span class="gc empty" style="animation-delay:0.81s"></span>
-              <span class="gc empty" style="animation-delay:0.90s"></span>
-              <button type="button" class="gc c-mdn" style="animation-delay:0.78s" aria-pressed="false" data-day="6" data-month="4" data-repo="mdn/content #43655" data-url="https://github.com/mdn/content/pull/43655" data-key="g5" aria-label="6 Nis 2026 · mdn/content #43655"></button>
-              <span class="gc empty" style="animation-delay:0.54s"></span>
-              <span class="gc empty" style="animation-delay:0.63s"></span>
-              <span class="gc empty" style="animation-delay:0.72s"></span>
-              <span class="gc empty" style="animation-delay:0.81s"></span>
-              <span class="gc empty" style="animation-delay:0.90s"></span>
-              <span class="gc empty" style="animation-delay:0.99s"></span>
-              <button type="button" class="gc c-nasa" style="animation-delay:0.90s" aria-pressed="false" data-day="13" data-month="4" data-repo="nasa/fprime-gds #294" data-url="https://github.com/nasa/fprime-gds/pull/294" data-key="g6" aria-label="13 Nis 2026 · nasa/fprime-gds #294"></button>
-              <button type="button" class="gc c-nasa" style="animation-delay:1.02s" aria-pressed="false" data-day="14" data-month="4" data-repo="nasa/fprime #5020" data-url="https://github.com/nasa/fprime/pull/5020" data-key="g7" aria-label="14 Nis 2026 · nasa/fprime #5020"></button>
-              <span class="gc empty" style="animation-delay:0.72s"></span>
-              <span class="gc empty" style="animation-delay:0.81s"></span>
-              <span class="gc empty" style="animation-delay:0.90s"></span>
-              <span class="gc empty" style="animation-delay:0.99s"></span>
-              <span class="gc empty" style="animation-delay:1.08s"></span>
-              <span class="gc empty" style="animation-delay:0.63s"></span>
-              <span class="gc empty" style="animation-delay:0.72s"></span>
-              <span class="gc empty" style="animation-delay:0.81s"></span>
-              <button type="button" class="gc c-nasa" style="animation-delay:1.14s" aria-pressed="true" data-day="23" data-month="4" data-repo="nasa/fprime #5045" data-url="https://github.com/nasa/fprime/pull/5045" data-key="g8" aria-label="23 Nis 2026 · nasa/fprime #5045"></button>
-              <span class="gc empty" style="animation-delay:0.99s"></span>
-              <span class="gc empty" style="animation-delay:1.08s"></span>
-              <span class="gc empty" style="animation-delay:1.17s"></span>
-              <span class="gc empty" style="animation-delay:0.72s"></span>
-              <span class="gc empty" style="animation-delay:0.81s"></span>
-              <span class="gc empty" style="animation-delay:0.90s"></span>
-              <span class="gc empty" style="animation-delay:0.99s"></span>
-              <span class="gc empty" style="animation-delay:1.08s"></span>
-              <span class="gc empty" style="animation-delay:1.17s"></span>
-              <span class="gc empty" style="animation-delay:1.26s"></span>
-            </div>
-          </div>
-          <ul class="grid-legend" aria-hidden="true"><li class="c-nasa">NASA</li><li class="c-react">React</li><li class="c-mdn">MDN</li><li class="c-py">Python</li><li class="c-kana">Kana Dojo</li></ul>
-          <a class="grid-info c-nasa" id="grid-info" href="https://github.com/nasa/fprime/pull/5045" target="_blank" rel="noopener">
-            <small><span id="gi-date">23 Nis 2026</span> · <span data-i18n="tapHint">kareye dokun</span></small>
-            <span class="repo" id="gi-repo">nasa/fprime #5045 ↗</span>
-            <b id="gi-title" data-i18n="g8">Platform sayfasına derleme rozetleri</b>
-          </a>
-        </div>
+        <a class="scroll-cue" href="#contributions"><span class="mouse" aria-hidden="true"></span><span data-i18n="scroll">aşağı kaydır</span></a>
       </section>
 
       <section class="section reveal" id="contributions" aria-labelledby="contributions-title">
@@ -561,6 +499,89 @@
             </a>
           </li>
         </ol>
+        <div class="grid-wrap">
+          <div>
+            <h3 data-i18n="gridTitle">Katkı ızgarası.</h3>
+            <p data-i18n="gridIntro">Her kare bir gün. Renkli kareler birleştirilen PR'larım; birine dokun, detayı açılsın.</p>
+          </div>
+          <div class="grid-card">
+            <div class="grid-head"><span data-i18n="mapTop">KATKI IZGARASI / MART–NİSAN 2026</span><span>8 PR · MERGED</span></div>
+            <div class="grid-body">
+              <div class="grid-days" aria-hidden="true"><span data-i18n="d1">Pzt</span><span></span><span data-i18n="d3">Çar</span><span></span><span data-i18n="d5">Cum</span><span></span><span data-i18n="d7">Paz</span></div>
+              <div class="grid-cells" role="group" data-i18n-aria="mapLabel" aria-label="Birleştirilen PR'ların takvimi">
+                <span class="gc empty" style="animation-delay:0.00s"></span>
+                <span class="gc empty" style="animation-delay:0.09s"></span>
+                <span class="gc empty" style="animation-delay:0.18s"></span>
+                <span class="gc empty" style="animation-delay:0.27s"></span>
+                <span class="gc empty" style="animation-delay:0.36s"></span>
+                <span class="gc empty" style="animation-delay:0.45s"></span>
+                <span class="gc empty" style="animation-delay:0.54s"></span>
+                <span class="gc empty" style="animation-delay:0.09s"></span>
+                <span class="gc empty" style="animation-delay:0.18s"></span>
+                <span class="gc empty" style="animation-delay:0.27s"></span>
+                <span class="gc empty" style="animation-delay:0.36s"></span>
+                <span class="gc empty" style="animation-delay:0.45s"></span>
+                <span class="gc empty" style="animation-delay:0.54s"></span>
+                <span class="gc empty" style="animation-delay:0.63s"></span>
+                <span class="gc empty" style="animation-delay:0.18s"></span>
+                <span class="gc empty" style="animation-delay:0.27s"></span>
+                <span class="gc empty" style="animation-delay:0.36s"></span>
+                <span class="gc empty" style="animation-delay:0.45s"></span>
+                <span class="gc empty" style="animation-delay:0.54s"></span>
+                <span class="gc empty" style="animation-delay:0.63s"></span>
+                <span class="gc empty" style="animation-delay:0.72s"></span>
+                <span class="gc empty" style="animation-delay:0.27s"></span>
+                <span class="gc empty" style="animation-delay:0.36s"></span>
+                <span class="gc empty" style="animation-delay:0.45s"></span>
+                <span class="gc empty" style="animation-delay:0.54s"></span>
+                <span class="gc empty" style="animation-delay:0.63s"></span>
+                <span class="gc empty" style="animation-delay:0.72s"></span>
+                <span class="gc empty" style="animation-delay:0.81s"></span>
+                <button type="button" class="gc c-react" style="animation-delay:0.30s" aria-pressed="false" data-day="30" data-month="3" data-repo="react/react #36170" data-url="https://github.com/react/react/pull/36170" data-key="g1" aria-label="30 Mar 2026 · react/react #36170"></button>
+                <button type="button" class="gc c-nasa" style="animation-delay:0.42s" aria-pressed="false" data-day="31" data-month="3" data-repo="nasa/fprime #4924" data-url="https://github.com/nasa/fprime/pull/4924" data-key="g2" aria-label="31 Mar 2026 · nasa/fprime #4924"></button>
+                <button type="button" class="gc c-kana" style="animation-delay:0.54s" aria-pressed="false" data-day="1" data-month="4" data-repo="lingdojo/kana-dojo #11373" data-url="https://github.com/lingdojo/kana-dojo/pull/11373" data-key="g3" aria-label="1 Nis 2026 · lingdojo/kana-dojo #11373"></button>
+                <button type="button" class="gc c-py" style="animation-delay:0.66s" aria-pressed="false" data-day="2" data-month="4" data-repo="vinta/awesome-python #3014" data-url="https://github.com/vinta/awesome-python/pull/3014" data-key="g4" aria-label="2 Nis 2026 · vinta/awesome-python #3014"></button>
+                <span class="gc empty" style="animation-delay:0.72s"></span>
+                <span class="gc empty" style="animation-delay:0.81s"></span>
+                <span class="gc empty" style="animation-delay:0.90s"></span>
+                <button type="button" class="gc c-mdn" style="animation-delay:0.78s" aria-pressed="false" data-day="6" data-month="4" data-repo="mdn/content #43655" data-url="https://github.com/mdn/content/pull/43655" data-key="g5" aria-label="6 Nis 2026 · mdn/content #43655"></button>
+                <span class="gc empty" style="animation-delay:0.54s"></span>
+                <span class="gc empty" style="animation-delay:0.63s"></span>
+                <span class="gc empty" style="animation-delay:0.72s"></span>
+                <span class="gc empty" style="animation-delay:0.81s"></span>
+                <span class="gc empty" style="animation-delay:0.90s"></span>
+                <span class="gc empty" style="animation-delay:0.99s"></span>
+                <button type="button" class="gc c-nasa" style="animation-delay:0.90s" aria-pressed="false" data-day="13" data-month="4" data-repo="nasa/fprime-gds #294" data-url="https://github.com/nasa/fprime-gds/pull/294" data-key="g6" aria-label="13 Nis 2026 · nasa/fprime-gds #294"></button>
+                <button type="button" class="gc c-nasa" style="animation-delay:1.02s" aria-pressed="false" data-day="14" data-month="4" data-repo="nasa/fprime #5020" data-url="https://github.com/nasa/fprime/pull/5020" data-key="g7" aria-label="14 Nis 2026 · nasa/fprime #5020"></button>
+                <span class="gc empty" style="animation-delay:0.72s"></span>
+                <span class="gc empty" style="animation-delay:0.81s"></span>
+                <span class="gc empty" style="animation-delay:0.90s"></span>
+                <span class="gc empty" style="animation-delay:0.99s"></span>
+                <span class="gc empty" style="animation-delay:1.08s"></span>
+                <span class="gc empty" style="animation-delay:0.63s"></span>
+                <span class="gc empty" style="animation-delay:0.72s"></span>
+                <span class="gc empty" style="animation-delay:0.81s"></span>
+                <button type="button" class="gc c-nasa" style="animation-delay:1.14s" aria-pressed="true" data-day="23" data-month="4" data-repo="nasa/fprime #5045" data-url="https://github.com/nasa/fprime/pull/5045" data-key="g8" aria-label="23 Nis 2026 · nasa/fprime #5045"></button>
+                <span class="gc empty" style="animation-delay:0.99s"></span>
+                <span class="gc empty" style="animation-delay:1.08s"></span>
+                <span class="gc empty" style="animation-delay:1.17s"></span>
+                <span class="gc empty" style="animation-delay:0.72s"></span>
+                <span class="gc empty" style="animation-delay:0.81s"></span>
+                <span class="gc empty" style="animation-delay:0.90s"></span>
+                <span class="gc empty" style="animation-delay:0.99s"></span>
+                <span class="gc empty" style="animation-delay:1.08s"></span>
+                <span class="gc empty" style="animation-delay:1.17s"></span>
+                <span class="gc empty" style="animation-delay:1.26s"></span>
+              </div>
+            </div>
+            <ul class="grid-legend" aria-hidden="true"><li class="c-nasa">NASA</li><li class="c-react">React</li><li class="c-mdn">MDN</li><li class="c-py">Python</li><li class="c-kana">Kana Dojo</li></ul>
+            <a class="grid-info c-nasa" id="grid-info" href="https://github.com/nasa/fprime/pull/5045" target="_blank" rel="noopener">
+              <small><span id="gi-date">23 Nis 2026</span> · <span data-i18n="tapHint">kareye dokun</span></small>
+              <span class="repo" id="gi-repo">nasa/fprime #5045 ↗</span>
+              <b id="gi-title" data-i18n="g8">Platform sayfasına derleme rozetleri</b>
+            </a>
+          </div>
+        </div>
       </section>
 
       <section class="section reveal" id="projects" aria-labelledby="projects-title">
@@ -638,6 +659,7 @@
           lede: "16 yaşında, 10. sınıf öğrencisiyim. <strong>NASA F´Prime</strong>, <strong>React</strong> ve <strong>MDN</strong> gibi projelere katkı veriyor, açık kaynak uygulamalar geliştiriyorum. Linux sistemleri, topluluklar ve küçük fikirleri çalışan araçlara dönüştürmek ilgimi çekiyor.",
           ctaGithub: "GitHub'ıma bak", ctaContrib: "Katkıları gör",
           meta1: "NASA F´Prime katkıcısı", meta2: "linux", meta3: "Türkiye",
+          scroll: "aşağı kaydır", gridTitle: "Katkı ızgarası.", gridIntro: "Her kare bir gün. Renkli kareler birleştirilen PR'larım; birine dokun, detayı açılsın.",
           mapLabel: "Birleştirilen PR'ların takvimi", mapTop: "KATKI IZGARASI / MART–NİSAN 2026", tapHint: "kareye dokun",
           d1: "Pzt", d3: "Çar", d5: "Cum", d7: "Paz", months: ["", "Oca", "Şub", "Mar", "Nis", "May"],
           g1: "DESIGN_GOALS dokümantasyonu", g2: "Giriş dokümanı düzeltmeleri", g3: "Japon kültürü ipucu", g4: "SQLite yazım düzeltmesi",
@@ -668,6 +690,7 @@
           lede: "I'm a 16-year-old 10th-grade student. I contribute to projects like <strong>NASA F´Prime</strong>, <strong>React</strong> and <strong>MDN</strong>, and build open-source apps. I'm into Linux systems, communities, and turning small ideas into working tools.",
           ctaGithub: "View my GitHub", ctaContrib: "See contributions",
           meta1: "NASA F´Prime contributor", meta2: "linux", meta3: "Türkiye",
+          scroll: "scroll down", gridTitle: "Contribution grid.", gridIntro: "Each square is a day. Colored squares are my merged PRs; tap one to see the details.",
           mapLabel: "Calendar of merged PRs", mapTop: "CONTRIBUTION GRID / MAR–APR 2026", tapHint: "tap a square",
           d1: "Mon", d3: "Wed", d5: "Fri", d7: "Sun", months: ["", "Jan", "Feb", "Mar", "Apr", "May"],
           g1: "DESIGN_GOALS documentation", g2: "Introduction doc fixes", g3: "Japanese culture tip", g4: "SQLite spelling fix",
