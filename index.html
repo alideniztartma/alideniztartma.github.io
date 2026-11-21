@@ -348,7 +348,7 @@
     .footer a:hover { color: var(--cyan); }
 
     /* Motion: içerik yalnızca JS çalışıyorsa gizlenip açılır */
-    .js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s cubic-bezier(.16, 1, .3, 1); }
+    .js .reveal { opacity: 0; transform: translateY(12px); transition: opacity .35s ease-out, transform .45s cubic-bezier(.16, 1, .3, 1); }
     .js .reveal.visible { opacity: 1; transform: none; }
     @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes wave { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
@@ -765,7 +765,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: .1 });
+      }, { threshold: 0, rootMargin: "0px 0px -24px 0px" });
       reveals.forEach(function (el) { observer.observe(el); });
     })();
   </script>
