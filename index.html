@@ -318,7 +318,10 @@
     .feature-prs a::before { counter-increment: pr; content: "0" counter(pr); grid-row: span 2; color: var(--warm); font: .7rem "DM Mono", monospace; }
     .feature-prs small { color: var(--faint); font: .64rem "DM Mono", monospace; letter-spacing: .05em; }
     .feature-prs b { font-weight: 600; font-size: .92rem; line-height: 1.35; }
-    .projects { display: grid; grid-template-columns: 1.3fr .7fr; gap: 18px; }
+    .projects { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; }
+    .project { grid-column: span 2; }
+    .project.featured { grid-column: span 4; }
+    .project-team { color: var(--warm); font: .66rem "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
     .project {
       position: relative; display: flex; flex-direction: column;
       min-height: 270px; padding: 30px;
@@ -378,7 +381,9 @@
       .section-heading { margin-bottom: 24px; }
       .section-heading { display: block; }
       .section-heading p { margin-top: 16px; }
-      .contributions, .projects, .contact { grid-template-columns: 1fr; }
+      .contributions, .contact { grid-template-columns: 1fr; }
+      .projects { grid-template-columns: 1fr; gap: 14px; }
+      .project, .project.featured { grid-column: auto; }
       .contribution:nth-child(odd) { border-right: 0; }
       .feature { grid-template-columns: 1fr; padding: 22px 18px; gap: 18px; margin-bottom: 14px; border-radius: 18px; }
       .feature::before { display: none; }
@@ -395,7 +400,8 @@
       .feature-prs b { overflow: hidden; font-size: .84rem; white-space: nowrap; text-overflow: ellipsis; }
       .contribution a { padding: 24px 4px 26px; }
       .contribution .mark { right: 4px; top: 28px; }
-      .project { min-height: 230px; padding: 26px; }
+      .project { min-height: 0; padding: 22px; }
+      .project-foot { padding-top: 20px; }
       .footer { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 420px) {
@@ -611,6 +617,30 @@
               <span class="project-link"><span data-i18n="open">projeyi aç</span> ↗</span>
             </div>
           </a>
+          <a class="project" href="https://github.com/alideniztartma/bilimkivilcimi" target="_blank" rel="noopener">
+            <h3>#BilimKıvılcımı</h3>
+            <p data-i18n="p3d">Hatay'daki çocuklar için ücretsiz bilim ve kodlama sitesi: 3D laboratuvar, kodlama dersleri ve öğretmenlere ders planları.</p>
+            <div class="project-foot">
+              <ul class="tags"><li class="tag">education</li><li class="tag">3D lab</li><li class="tag">coding</li></ul>
+              <span class="project-link"><span data-i18n="open">projeyi aç</span> ↗</span>
+            </div>
+          </a>
+          <a class="project" href="https://github.com/alideniztartma/adt-music" target="_blank" rel="noopener">
+            <h3>ADTMusic</h3>
+            <p data-i18n="p4d">Reklamsız, hesapsız, takipçisiz, Material 3 tasarımlı resmî olmayan bir YouTube Music istemcisi.</p>
+            <div class="project-foot">
+              <ul class="tags"><li class="tag">android</li><li class="tag">windows</li><li class="tag">linux</li></ul>
+              <span class="project-link"><span data-i18n="open">projeyi aç</span> ↗</span>
+            </div>
+          </a>
+          <a class="project" href="https://github.com/alideniztartma/antiochrising-10947-website" target="_blank" rel="noopener">
+            <h3>Antioch Rising</h3>
+            <p data-i18n="p5d">Hatay Fen Lisesi'nin FIRST Robotics Competition #10947 takımının iki dilli web sitesi.</p>
+            <div class="project-foot">
+              <ul class="tags"><li class="tag">FRC 10947</li><li class="tag">TR / EN</li><li class="tag">static site</li></ul>
+              <span class="project-link"><span data-i18n="open">projeyi aç</span> ↗</span>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -678,6 +708,9 @@
           projTitle: "Projelerim.", projIntro: "Merakımı küçük, paylaşılabilir araçlara dönüştürdüğüm bağımsız projeler.",
           p1d: "Her pikselin bir PR olduğu sosyal sanat platformu. Kod, renk ve topluluk aynı tuvalde buluşuyor.",
           p2d: "Minimalist, platformlar arası günlük uygulaması.",
+          p3d: "Hatay'daki çocuklar için ücretsiz bilim ve kodlama sitesi: 3D laboratuvar, kodlama dersleri ve öğretmenlere ders planları.",
+          p4d: "Reklamsız, hesapsız, takipçisiz, Material 3 tasarımlı resmî olmayan bir YouTube Music istemcisi.",
+          p5d: "Hatay Fen Lisesi'nin FIRST Robotics Competition #10947 takımının iki dilli web sitesi.",
           open: "projeyi aç",
           contactTitle: "İletişim.", contactIntro: "Bir proje, katkı ya da sadece merhaba için yazabilirsin.",
           mail: "E-posta", top: "başa dön ↑"
@@ -709,6 +742,9 @@
           projTitle: "Projects.", projIntro: "Independent projects where I turn curiosity into small, shareable tools.",
           p1d: "A social art platform where every pixel is a PR. Code, color and community meet on one canvas.",
           p2d: "A minimalist, cross-platform journaling app.",
+          p3d: "A free science and coding site for children in Hatay: a 3D lab, coding lessons and lesson plans for teachers.",
+          p4d: "An unofficial YouTube Music client with Material 3 design: no ads, no account, no trackers.",
+          p5d: "The bilingual website of Antioch Rising, FIRST Robotics Competition team #10947 from Hatay Fen Lisesi.",
           open: "open project",
           contactTitle: "Contact.", contactIntro: "Write to me about a project, a contribution, or just to say hi.",
           mail: "Email", top: "back to top ↑"
