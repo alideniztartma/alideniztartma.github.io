@@ -182,28 +182,11 @@
       position: relative;
       display: flex; flex-direction: column; justify-content: center;
       min-height: calc(100vh - 89px); min-height: calc(100svh - 89px);
-      padding: 56px 0 120px;
+      padding: 56px 0 96px;
     }
     .hero-copy { max-width: 860px; animation: heroIn .9s cubic-bezier(.16, 1, .3, 1); }
     @keyframes heroIn { from { opacity: 0; transform: translateY(22px); } }
-    .scroll-cue {
-      position: absolute; left: 50%; bottom: 20px;
-      display: grid; place-items: center; width: 44px; height: 84px; margin-left: -22px;
-      text-decoration: none;
-    }
-    .cue-track {
-      position: relative; display: block; width: 1px; height: 64px; overflow: hidden;
-      background: linear-gradient(to bottom, transparent, var(--line) 20%, var(--line) 80%, transparent);
-    }
-    .cue-dot {
-      position: absolute; left: -2px; top: -14px; width: 5px; height: 14px; border-radius: 3px;
-      background: linear-gradient(to bottom, transparent, var(--cyan));
-      box-shadow: 0 0 10px var(--cyan);
-      animation: cue 2.2s cubic-bezier(.65, 0, .35, 1) infinite;
-    }
-    .scroll-cue:hover .cue-dot { background: linear-gradient(to bottom, transparent, var(--lime)); box-shadow: 0 0 10px var(--lime); }
-    @keyframes cue { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(78px); opacity: 0; } }
-    .hero-copy, .scroll-cue { will-change: transform, opacity; }
+    .hero-copy { will-change: transform, opacity; }
     .grid-wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 80px); align-items: center; margin-top: 64px; }
     .grid-wrap .grid-card { width: 100%; max-width: 520px; justify-self: end; }
     .grid-wrap h3 { margin: 0; font: 600 clamp(1.8rem, 3.4vw, 2.6rem)/1 "Bricolage Grotesque", sans-serif; letter-spacing: -.04em; }
@@ -375,7 +358,7 @@
     @media (max-width: 900px) {
       .shell { width: min(100% - 32px, 640px); }
       .top-link { display: none; }
-      .hero { padding: 40px 0 110px; }
+      .hero { padding: 40px 0 72px; }
       .grid-wrap { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; }
       .hero h1 { font-size: clamp(3.6rem, 18vw, 6.6rem); }
       .grid-card { padding: 18px; }
@@ -445,8 +428,6 @@
             <li data-i18n="meta3">Türkiye</li>
           </ul>
         </div>
-
-        <a class="scroll-cue" href="#contributions" data-i18n-aria="scroll" aria-label="Katkılarıma kaydır"><span class="cue-track" aria-hidden="true"><span class="cue-dot"></span></span></a>
       </section>
 
       <section class="section reveal" id="contributions" aria-labelledby="contributions-title">
@@ -668,7 +649,7 @@
           lede: "16 yaşında, 10. sınıf öğrencisiyim. <strong>NASA F´Prime</strong>, <strong>React</strong> ve <strong>MDN</strong> gibi projelere katkı veriyor, açık kaynak uygulamalar geliştiriyorum. Linux sistemleri, topluluklar ve küçük fikirleri çalışan araçlara dönüştürmek ilgimi çekiyor.",
           ctaGithub: "GitHub'ıma bak", ctaContrib: "Katkıları gör",
           meta1: "NASA F´Prime katkıcısı", meta2: "linux", meta3: "Türkiye",
-          scroll: "Katkılarıma kaydır", gridTitle: "Katkı ızgarası.", gridIntro: "Her kare bir gün. Renkli kareler birleştirilen PR'larım; birine dokun, detayı açılsın.",
+          gridTitle: "Katkı ızgarası.", gridIntro: "Her kare bir gün. Renkli kareler birleştirilen PR'larım; birine dokun, detayı açılsın.",
           mapLabel: "Birleştirilen PR'ların takvimi", mapTop: "KATKI IZGARASI / MART–NİSAN 2026", tapHint: "kareye dokun",
           d1: "Pzt", d3: "Çar", d5: "Cum", d7: "Paz", months: ["", "Oca", "Şub", "Mar", "Nis", "May"],
           g1: "DESIGN_GOALS dokümantasyonu", g2: "Giriş dokümanı düzeltmeleri", g3: "Japon kültürü ipucu", g4: "SQLite yazım düzeltmesi",
@@ -699,7 +680,7 @@
           lede: "I'm a 16-year-old 10th-grade student. I contribute to projects like <strong>NASA F´Prime</strong>, <strong>React</strong> and <strong>MDN</strong>, and build open-source apps. I'm into Linux systems, communities, and turning small ideas into working tools.",
           ctaGithub: "View my GitHub", ctaContrib: "See contributions",
           meta1: "NASA F´Prime contributor", meta2: "linux", meta3: "Türkiye",
-          scroll: "Scroll to contributions", gridTitle: "Contribution grid.", gridIntro: "Each square is a day. Colored squares are my merged PRs; tap one to see the details.",
+          gridTitle: "Contribution grid.", gridIntro: "Each square is a day. Colored squares are my merged PRs; tap one to see the details.",
           mapLabel: "Calendar of merged PRs", mapTop: "CONTRIBUTION GRID / MAR–APR 2026", tapHint: "tap a square",
           d1: "Mon", d3: "Wed", d5: "Fri", d7: "Sun", months: ["", "Jan", "Feb", "Mar", "Apr", "May"],
           g1: "DESIGN_GOALS documentation", g2: "Introduction doc fixes", g3: "Japanese culture tip", g4: "SQLite spelling fix",
@@ -773,7 +754,6 @@
       // Açılış ekranı kaydırmayla kaybolur, yukarı çıkınca geri gelir.
       var hero = document.querySelector(".hero");
       var heroCopy = document.querySelector(".hero-copy");
-      var cue = document.querySelector(".scroll-cue");
       var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
       var ticking = false;
       function onScroll() {
@@ -783,8 +763,6 @@
         heroCopy.style.transform = "translateY(" + (p * 90) + "px) scale(" + (1 - p * 0.08) + ")";
         heroCopy.style.opacity = String(1 - p);
         heroCopy.style.filter = p > 0.01 ? "blur(" + (p * 6) + "px)" : "";
-        cue.style.opacity = String(Math.max(0, 1 - p * 4));
-        cue.style.pointerEvents = p > 0.2 ? "none" : "";
       }
       if (!reduce && hero && heroCopy) {
         heroCopy.style.transformOrigin = "left center";
