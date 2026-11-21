@@ -256,9 +256,9 @@
     .section-heading h2 { margin: 0; font: 600 clamp(2.4rem, 5vw, 4.4rem)/.95 "Bricolage Grotesque", sans-serif; letter-spacing: -.05em; }
     .section-heading p { max-width: 36ch; margin: 0; color: var(--muted); }
 
-    .contributions { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .contributions { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
     .contribution { border-bottom: 1px solid var(--line); }
-    .contribution:nth-child(odd) { border-right: 1px solid var(--line); }
+    .contribution:not(:last-child) { border-right: 1px solid var(--line); }
     .contribution a {
       position: relative; display: block; height: 100%;
       padding: 26px 30px 28px; text-decoration: none;
@@ -275,6 +275,35 @@
     .contribution code { padding: 1px 6px; border-radius: 6px; background: var(--surface-2); color: var(--text); font: .82em "DM Mono", monospace; }
     .contribution .mark { position: absolute; top: 30px; right: 30px; color: var(--lime); font: .68rem "DM Mono", monospace; }
 
+
+    /* NASA F´Prime öne çıkan katkı */
+    .feature {
+      position: relative; display: grid; grid-template-columns: 1.25fr .75fr; gap: 40px; align-items: center;
+      margin-bottom: 22px; padding: 40px 44px;
+      border: 1px solid color-mix(in srgb, var(--warm) 45%, var(--line)); border-radius: 22px; overflow: hidden;
+      background:
+        radial-gradient(circle at 92% 10%, color-mix(in srgb, var(--warm) 16%, transparent), transparent 22rem),
+        linear-gradient(135deg, var(--surface), color-mix(in srgb, var(--warm) 6%, var(--surface)));
+      isolation: isolate;
+    }
+    .feature::before {
+      position: absolute; right: -60px; top: -60px; z-index: -1; width: 300px; height: 300px; content: "";
+      border: 1px dashed color-mix(in srgb, var(--warm) 35%, transparent); border-radius: 50%;
+      animation: spin 60s linear infinite;
+    }
+    .feature-badge { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; padding: 6px 12px 6px 6px; border: 1px solid color-mix(in srgb, var(--warm) 40%, transparent); border-radius: 999px; color: var(--warm); font: 500 .68rem "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+    .feature-badge img { width: 24px; height: 24px; border-radius: 50%; background: var(--surface-2); }
+    .feature h3 { margin: 0; font: 700 clamp(1.9rem, 3.6vw, 2.9rem)/1.02 "Bricolage Grotesque", sans-serif; letter-spacing: -.04em; }
+    .feature h3 span { color: var(--warm); }
+    .feature p { max-width: 52ch; margin: 16px 0 0; color: var(--muted); }
+    .feature code { padding: 1px 6px; border-radius: 6px; background: var(--surface-2); color: var(--text); font: .82em "DM Mono", monospace; }
+    .feature .button { margin-top: 26px; }
+    .feature .button.warm { border-color: var(--warm); background: var(--warm); color: var(--on-accent); }
+    .feature .button.warm:hover { background: var(--lime); border-color: var(--lime); }
+    .feature-stats { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .feature-stats li { padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--bg) 35%, transparent); }
+    .feature-stats small { display: block; color: var(--faint); font: .64rem "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+    .feature-stats b { display: block; margin-top: 4px; font: 600 1rem "Manrope", sans-serif; }
     .projects { display: grid; grid-template-columns: 1.3fr .7fr; gap: 18px; }
     .project {
       position: relative; display: flex; flex-direction: column;
@@ -332,7 +361,9 @@
       .section-heading { display: block; }
       .section-heading p { margin-top: 16px; }
       .contributions, .projects, .contact { grid-template-columns: 1fr; }
-      .contribution:nth-child(odd) { border-right: 0; }
+      .contribution:not(:last-child) { border-right: 0; }
+      .feature { grid-template-columns: 1fr; padding: 28px 24px; gap: 26px; }
+      .feature-stats li { padding: 12px 16px; }
       .contribution a { padding: 24px 4px 26px; }
       .contribution .mark { right: 4px; top: 28px; }
       .project { min-height: 230px; padding: 26px; }
@@ -376,7 +407,7 @@
             <a class="button secondary" href="#contributions"><span data-i18n="ctaContrib">Katkıları gör</span> <span aria-hidden="true">↓</span></a>
           </div>
           <ul class="hero-meta">
-            <li data-i18n="meta1">açık kaynak katkıcısı</li>
+            <li data-i18n="meta1">NASA F´Prime katkıcısı</li>
             <li data-i18n="meta2">linux</li>
             <li data-i18n="meta3">Türkiye</li>
           </ul>
@@ -410,21 +441,26 @@
           </div>
           <p data-i18n="contribIntro">Katkılar küçük başlayabilir. Her PR ile biraz daha öğreniyorum.</p>
         </div>
+        <article class="feature" aria-labelledby="feature-title">
+          <div>
+            <span class="feature-badge"><img src="https://github.com/nasa.png?size=48" alt="" width="24" height="24" loading="lazy">NASA · <span data-i18n="fBadge">öne çıkan katkı</span></span>
+            <h3 id="feature-title"><span>NASA</span> F´Prime</h3>
+            <p data-i18n-html="fDesc">F´Prime, NASA JPL'in uçuş yazılımı çatısı; Mars'ta uçan Ingenuity helikopterinde de kullanıldı. Yer istasyonu aracı <code>fprime-gds</code>'te <code>datetime.UTC</code> yerine <code>timezone.utc</code> kullanarak Python 3.10 uyumluluk hatasını giderdim.</p>
+            <a class="button warm" href="https://github.com/nasa/fprime-gds/pull/294" target="_blank" rel="noopener"><span data-i18n="fCta">PR #294'ü incele</span> <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul class="feature-stats">
+            <li><small data-i18n="fS1k">Proje</small><b>nasa/fprime-gds</b></li>
+            <li><small data-i18n="fS2k">Alan</small><b data-i18n="fS2v">Uçuş yazılımı · yer istasyonu</b></li>
+            <li><small data-i18n="fS3k">Katkı</small><b data-i18n="fS3v">Python 3.10 uyumluluğu</b></li>
+          </ul>
+        </article>
         <ol class="contributions">
-          <li class="contribution">
-            <a href="https://github.com/nasa/fprime-gds/pull/294" target="_blank" rel="noopener">
-              <span class="meta"><img class="contribution-logo" src="https://github.com/nasa.png?size=64" alt="" width="30" height="30" loading="lazy" decoding="async">NASA / F´PRIME · PR #294</span>
-              <h3><span data-i18n="c1t">Python 3.10 uyumluluğu</span> <span class="arrow" aria-hidden="true">↗</span></h3>
-              <p data-i18n-html="c1d"><code>datetime.UTC</code> yerine <code>timezone.utc</code> kullanarak Python 3.10 uyumluluk hatasını giderdim.</p>
-              <span class="mark" aria-hidden="true">01</span>
-            </a>
-          </li>
           <li class="contribution">
             <a href="https://github.com/mdn/content/pull/43655" target="_blank" rel="noopener">
               <span class="meta"><img class="contribution-logo" src="https://github.com/mozilla.png?size=64" alt="" width="30" height="30" loading="lazy" decoding="async">MOZILLA / MDN · PR #43655</span>
               <h3><span data-i18n="c2t">RTT sözlüğü düzeltmeleri</span> <span class="arrow" aria-hidden="true">↗</span></h3>
               <p data-i18n="c2d">RTT sözlük maddesindeki hataları ve teknik tutarsızlıkları düzelttim.</p>
-              <span class="mark" aria-hidden="true">02</span>
+              <span class="mark" aria-hidden="true">01</span>
             </a>
           </li>
           <li class="contribution">
@@ -432,7 +468,7 @@
               <span class="meta"><img class="contribution-logo" src="https://github.com/facebook.png?size=64" alt="" width="30" height="30" loading="lazy" decoding="async">META / REACT · PR #36170</span>
               <h3><span data-i18n="c3t">Dokümantasyon iyileştirmeleri</span> <span class="arrow" aria-hidden="true">↗</span></h3>
               <p data-i18n-html="c3d"><code>DESIGN_GOALS</code> dokümantasyonunu iyileştirip yazım hatalarını düzelttim.</p>
-              <span class="mark" aria-hidden="true">03</span>
+              <span class="mark" aria-hidden="true">02</span>
             </a>
           </li>
           <li class="contribution">
@@ -440,7 +476,7 @@
               <span class="meta"><img class="contribution-logo" src="https://github.com/vinta.png?size=64" alt="" width="30" height="30" loading="lazy" decoding="async">AWESOME PYTHON · PR #3014</span>
               <h3><span data-i18n="c4t">SQLite yazım düzeltmesi</span> <span class="arrow" aria-hidden="true">↗</span></h3>
               <p data-i18n="c4d">Veritabanı sürücüleri bölümündeki SQLite yazımını düzelttim.</p>
-              <span class="mark" aria-hidden="true">04</span>
+              <span class="mark" aria-hidden="true">03</span>
             </a>
           </li>
         </ol>
@@ -520,10 +556,13 @@
           hello: "Ben",
           lede: "16 yaşında, 10. sınıf öğrencisiyim. <strong>NASA F´Prime</strong>, <strong>React</strong> ve <strong>MDN</strong> gibi projelere katkı veriyor, açık kaynak uygulamalar geliştiriyorum. Linux sistemleri, topluluklar ve küçük fikirleri çalışan araçlara dönüştürmek ilgimi çekiyor.",
           ctaGithub: "GitHub'ıma bak", ctaContrib: "Katkıları gör",
-          meta1: "açık kaynak katkıcısı", meta2: "linux", meta3: "Türkiye",
+          meta1: "NASA F´Prime katkıcısı", meta2: "linux", meta3: "Türkiye",
           mapLabel: "Katkı haritası: NASA, React, MDN ve Awesome Python", mapTop: "KATKI HARİTASI / 2025—",
           contribTitle: "Katkılarım.", contribIntro: "Katkılar küçük başlayabilir. Her PR ile biraz daha öğreniyorum.",
           c1t: "Python 3.10 uyumluluğu", c1d: "<code>datetime.UTC</code> yerine <code>timezone.utc</code> kullanarak Python 3.10 uyumluluk hatasını giderdim.",
+          fBadge: "öne çıkan katkı", fCta: "PR #294'ü incele",
+          fDesc: "F´Prime, NASA JPL'in uçuş yazılımı çatısı; Mars'ta uçan Ingenuity helikopterinde de kullanıldı. Yer istasyonu aracı <code>fprime-gds</code>'te <code>datetime.UTC</code> yerine <code>timezone.utc</code> kullanarak Python 3.10 uyumluluk hatasını giderdim.",
+          fS1k: "Proje", fS2k: "Alan", fS2v: "Uçuş yazılımı · yer istasyonu", fS3k: "Katkı", fS3v: "Python 3.10 uyumluluğu",
           c2t: "RTT sözlüğü düzeltmeleri", c2d: "RTT sözlük maddesindeki hataları ve teknik tutarsızlıkları düzelttim.",
           c3t: "Dokümantasyon iyileştirmeleri", c3d: "<code>DESIGN_GOALS</code> dokümantasyonunu iyileştirip yazım hatalarını düzelttim.",
           c4t: "SQLite yazım düzeltmesi", c4d: "Veritabanı sürücüleri bölümündeki SQLite yazımını düzelttim.",
@@ -543,10 +582,13 @@
           hello: "I'm",
           lede: "I'm a 16-year-old 10th-grade student. I contribute to projects like <strong>NASA F´Prime</strong>, <strong>React</strong> and <strong>MDN</strong>, and build open-source apps. I'm into Linux systems, communities, and turning small ideas into working tools.",
           ctaGithub: "View my GitHub", ctaContrib: "See contributions",
-          meta1: "open-source contributor", meta2: "linux", meta3: "Türkiye",
+          meta1: "NASA F´Prime contributor", meta2: "linux", meta3: "Türkiye",
           mapLabel: "Contribution map: NASA, React, MDN and Awesome Python", mapTop: "CONTRIBUTION MAP / 2025—",
           contribTitle: "Contributions.", contribIntro: "Contributions can start small. Every PR teaches me a little more.",
           c1t: "Python 3.10 compatibility", c1d: "Fixed a Python 3.10 compatibility bug by using <code>timezone.utc</code> instead of <code>datetime.UTC</code>.",
+          fBadge: "featured contribution", fCta: "Review PR #294",
+          fDesc: "F´Prime is NASA JPL's flight software framework, also used on the Ingenuity helicopter that flew on Mars. In its ground data system <code>fprime-gds</code>, I fixed a Python 3.10 compatibility bug by using <code>timezone.utc</code> instead of <code>datetime.UTC</code>.",
+          fS1k: "Project", fS2k: "Area", fS2v: "Flight software · ground system", fS3k: "Change", fS3v: "Python 3.10 compatibility",
           c2t: "RTT glossary fixes", c2d: "Fixed errors and technical inconsistencies in the RTT glossary entry.",
           c3t: "Documentation improvements", c3d: "Improved the <code>DESIGN_GOALS</code> documentation and fixed typos.",
           c4t: "SQLite spelling fix", c4d: "Fixed the SQLite spelling in the database drivers section.",
