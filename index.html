@@ -320,7 +320,7 @@
     .feature-prs b { font-weight: 600; font-size: .92rem; line-height: 1.35; }
     .projects { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; }
     .project { grid-column: span 2; }
-    .project.featured { grid-column: span 4; }
+    .project.featured { grid-column: span 3; }
     .project-team { color: var(--warm); font: .66rem "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
     .project {
       position: relative; display: flex; flex-direction: column;
@@ -601,7 +601,23 @@
           <p data-i18n="projIntro">Merakımı küçük, paylaşılabilir araçlara dönüştürdüğüm bağımsız projeler.</p>
         </div>
         <div class="projects">
-          <a class="project featured" href="https://github.com/alideniztartma/GitCanvas" target="_blank" rel="noopener">
+          <a class="project featured alt" href="https://github.com/alideniztartma/bilimkivilcimi" target="_blank" rel="noopener">
+            <h3>#BilimKıvılcımı</h3>
+            <p data-i18n="p3d">Hatay'daki çocuklar için ücretsiz bilim ve kodlama sitesi: 3D laboratuvar, kodlama dersleri ve öğretmenlere ders planları.</p>
+            <div class="project-foot">
+              <ul class="tags"><li class="tag">education</li><li class="tag">3D lab</li><li class="tag">coding</li></ul>
+              <span class="project-link"><span data-i18n="open">projeyi aç</span> ↗</span>
+            </div>
+          </a>
+          <a class="project featured" href="https://github.com/alideniztartma/adt-music" target="_blank" rel="noopener">
+            <h3>ADTMusic</h3>
+            <p data-i18n="p4d">Reklamsız, hesapsız ve takipçisiz, resmî olmayan bir YouTube Music istemcisi. Android, Windows ve Linux'ta çalışıyor.</p>
+            <div class="project-foot">
+              <ul class="tags"><li class="tag">youtube music</li><li class="tag">android</li><li class="tag">desktop</li></ul>
+              <span class="project-link"><span data-i18n="open">projeyi aç</span> ↗</span>
+            </div>
+          </a>
+          <a class="project" href="https://github.com/alideniztartma/GitCanvas" target="_blank" rel="noopener">
             <h3>GitCanvas</h3>
             <p data-i18n="p1d">Her pikselin bir PR olduğu sosyal sanat platformu. Kod, renk ve topluluk aynı tuvalde buluşuyor.</p>
             <div class="project-foot">
@@ -614,22 +630,6 @@
             <p data-i18n="p2d">Minimalist, platformlar arası günlük uygulaması.</p>
             <div class="project-foot">
               <ul class="tags"><li class="tag">journal</li><li class="tag">cross-platform</li></ul>
-              <span class="project-link"><span data-i18n="open">projeyi aç</span> ↗</span>
-            </div>
-          </a>
-          <a class="project" href="https://github.com/alideniztartma/bilimkivilcimi" target="_blank" rel="noopener">
-            <h3>#BilimKıvılcımı</h3>
-            <p data-i18n="p3d">Hatay'daki çocuklar için ücretsiz bilim ve kodlama sitesi: 3D laboratuvar, kodlama dersleri ve öğretmenlere ders planları.</p>
-            <div class="project-foot">
-              <ul class="tags"><li class="tag">education</li><li class="tag">3D lab</li><li class="tag">coding</li></ul>
-              <span class="project-link"><span data-i18n="open">projeyi aç</span> ↗</span>
-            </div>
-          </a>
-          <a class="project" href="https://github.com/alideniztartma/adt-music" target="_blank" rel="noopener">
-            <h3>ADTMusic</h3>
-            <p data-i18n="p4d">Reklamsız, hesapsız, takipçisiz, Material 3 tasarımlı resmî olmayan bir YouTube Music istemcisi.</p>
-            <div class="project-foot">
-              <ul class="tags"><li class="tag">android</li><li class="tag">windows</li><li class="tag">linux</li></ul>
               <span class="project-link"><span data-i18n="open">projeyi aç</span> ↗</span>
             </div>
           </a>
@@ -709,7 +709,7 @@
           p1d: "Her pikselin bir PR olduğu sosyal sanat platformu. Kod, renk ve topluluk aynı tuvalde buluşuyor.",
           p2d: "Minimalist, platformlar arası günlük uygulaması.",
           p3d: "Hatay'daki çocuklar için ücretsiz bilim ve kodlama sitesi: 3D laboratuvar, kodlama dersleri ve öğretmenlere ders planları.",
-          p4d: "Reklamsız, hesapsız, takipçisiz, Material 3 tasarımlı resmî olmayan bir YouTube Music istemcisi.",
+          p4d: "Reklamsız, hesapsız ve takipçisiz, resmî olmayan bir YouTube Music istemcisi. Android, Windows ve Linux'ta çalışıyor.",
           p5d: "Hatay Fen Lisesi'nin FIRST Robotics Competition #10947 takımının iki dilli web sitesi.",
           open: "projeyi aç",
           contactTitle: "İletişim.", contactIntro: "Bir proje, katkı ya da sadece merhaba için yazabilirsin.",
@@ -743,7 +743,7 @@
           p1d: "A social art platform where every pixel is a PR. Code, color and community meet on one canvas.",
           p2d: "A minimalist, cross-platform journaling app.",
           p3d: "A free science and coding site for children in Hatay: a 3D lab, coding lessons and lesson plans for teachers.",
-          p4d: "An unofficial YouTube Music client with Material 3 design: no ads, no account, no trackers.",
+          p4d: "An unofficial YouTube Music client with no ads, no account and no trackers. Runs on Android, Windows and Linux.",
           p5d: "The bilingual website of Antioch Rising, FIRST Robotics Competition team #10947 from Hatay Fen Lisesi.",
           open: "open project",
           contactTitle: "Contact.", contactIntro: "Write to me about a project, a contribution, or just to say hi.",
