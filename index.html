@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ali Deniz Tartma — Açık kaynak geliştirici</title>
-  <meta name="description" content="Ali Deniz Tartma: NASA F´Prime, React ve MDN gibi projelere katkı veren 16 yaşında açık kaynak geliştirici. Katkılar, projeler ve iletişim.">
+  <meta name="description" content="Ali Deniz Tartma: NASA F´Prime (4 PR), React ve MDN gibi projelere katkı veren 16 yaşında açık kaynak geliştirici. Katkılar, projeler ve iletişim.">
   <meta name="author" content="Ali Deniz Tartma">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0a0d12" media="(prefers-color-scheme: dark)">
@@ -256,9 +256,9 @@
     .section-heading h2 { margin: 0; font: 600 clamp(2.4rem, 5vw, 4.4rem)/.95 "Bricolage Grotesque", sans-serif; letter-spacing: -.05em; }
     .section-heading p { max-width: 36ch; margin: 0; color: var(--muted); }
 
-    .contributions { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .contributions { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
     .contribution { border-bottom: 1px solid var(--line); }
-    .contribution:not(:last-child) { border-right: 1px solid var(--line); }
+    .contribution:nth-child(odd) { border-right: 1px solid var(--line); }
     .contribution a {
       position: relative; display: block; height: 100%;
       padding: 26px 30px 28px; text-decoration: none;
@@ -278,7 +278,7 @@
 
     /* NASA F´Prime öne çıkan katkı */
     .feature {
-      position: relative; display: grid; grid-template-columns: 1.25fr .75fr; gap: 40px; align-items: center;
+      position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center;
       margin-bottom: 22px; padding: 40px 44px;
       border: 1px solid color-mix(in srgb, var(--warm) 45%, var(--line)); border-radius: 22px; overflow: hidden;
       background:
@@ -300,10 +300,17 @@
     .feature .button { margin-top: 26px; }
     .feature .button.warm { border-color: var(--warm); background: var(--warm); color: var(--on-accent); }
     .feature .button.warm:hover { background: var(--lime); border-color: var(--lime); }
-    .feature-stats { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
-    .feature-stats li { padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--bg) 35%, transparent); }
-    .feature-stats small { display: block; color: var(--faint); font: .64rem "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
-    .feature-stats b { display: block; margin-top: 4px; font: 600 1rem "Manrope", sans-serif; }
+    .feature-prs { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; counter-reset: pr; }
+    .feature-prs a {
+      display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; align-items: baseline;
+      padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px;
+      background: color-mix(in srgb, var(--bg) 35%, transparent); text-decoration: none;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .feature-prs a:hover { border-color: var(--warm); transform: translateX(4px); }
+    .feature-prs a::before { counter-increment: pr; content: "0" counter(pr); grid-row: span 2; color: var(--warm); font: .7rem "DM Mono", monospace; }
+    .feature-prs small { color: var(--faint); font: .64rem "DM Mono", monospace; letter-spacing: .05em; }
+    .feature-prs b { font-weight: 600; font-size: .92rem; line-height: 1.35; }
     .projects { display: grid; grid-template-columns: 1.3fr .7fr; gap: 18px; }
     .project {
       position: relative; display: flex; flex-direction: column;
@@ -361,9 +368,8 @@
       .section-heading { display: block; }
       .section-heading p { margin-top: 16px; }
       .contributions, .projects, .contact { grid-template-columns: 1fr; }
-      .contribution:not(:last-child) { border-right: 0; }
+      .contribution:nth-child(odd) { border-right: 0; }
       .feature { grid-template-columns: 1fr; padding: 28px 24px; gap: 26px; }
-      .feature-stats li { padding: 12px 16px; }
       .contribution a { padding: 24px 4px 26px; }
       .contribution .mark { right: 4px; top: 28px; }
       .project { min-height: 230px; padding: 26px; }
@@ -415,7 +421,7 @@
 
         <div class="signal-map reveal" role="img" data-i18n-aria="mapLabel" aria-label="Katkı haritası: NASA, React, MDN ve Awesome Python">
           <span class="map-label top" data-i18n="mapTop" aria-hidden="true">KATKI HARİTASI / 2025—</span>
-          <span class="map-label bottom" aria-hidden="true">4 PR · 4 REPO</span>
+          <span class="map-label bottom" aria-hidden="true">8 PR · MERGED</span>
           <svg class="map-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
             <g class="spin"><ellipse class="orbit" cx="50" cy="52" rx="40" ry="24" transform="rotate(-18 50 52)" vector-effect="non-scaling-stroke"/></g>
             <g class="spin rev"><ellipse class="orbit" cx="50" cy="52" rx="30" ry="40" transform="rotate(30 50 52)" vector-effect="non-scaling-stroke"/></g>
@@ -426,8 +432,8 @@
             <path class="link" d="M50 52 L25 82" stroke="var(--lime)" vector-effect="non-scaling-stroke"/>
           </svg>
           <span class="node center" aria-hidden="true"><span><b>ALİ</b><br>DENİZ</span></span>
-          <a class="node nasa" href="https://github.com/nasa/fprime-gds/pull/294" target="_blank" rel="noopener" aria-label="NASA F´Prime PR #294">NASA</a>
-          <a class="node react" href="https://github.com/facebook/react/pull/36170" target="_blank" rel="noopener" aria-label="React PR #36170">REACT</a>
+          <a class="node nasa" href="https://github.com/search?q=author%3Aalideniztartma+org%3Anasa+is%3Apr&amp;type=pullrequests" target="_blank" rel="noopener" aria-label="NASA F´Prime PR'ları">NASA</a>
+          <a class="node react" href="https://github.com/react/react/pull/36170" target="_blank" rel="noopener" aria-label="React PR #36170">REACT</a>
           <a class="node mdn" href="https://github.com/mdn/content/pull/43655" target="_blank" rel="noopener" aria-label="MDN PR #43655">MDN</a>
           <a class="node python" href="https://github.com/vinta/awesome-python/pull/3014" target="_blank" rel="noopener" aria-label="Awesome Python PR #3014">PY</a>
         </div>
@@ -443,16 +449,17 @@
         </div>
         <article class="feature" aria-labelledby="feature-title">
           <div>
-            <span class="feature-badge"><img src="https://github.com/nasa.png?size=48" alt="" width="24" height="24" loading="lazy">NASA · <span data-i18n="fBadge">öne çıkan katkı</span></span>
+            <span class="feature-badge"><img src="https://github.com/nasa.png?size=48" alt="" width="24" height="24" loading="lazy">NASA · 4 PR · <span data-i18n="fBadge">öne çıkan katkı</span></span>
             <h3 id="feature-title"><span>NASA</span> F´Prime</h3>
-            <p data-i18n-html="fDesc">F´Prime, NASA JPL'in uçuş yazılımı çatısı; Mars'ta uçan Ingenuity helikopterinde de kullanıldı. Yer istasyonu aracı <code>fprime-gds</code>'te <code>datetime.UTC</code> yerine <code>timezone.utc</code> kullanarak Python 3.10 uyumluluk hatasını giderdim.</p>
-            <a class="button warm" href="https://github.com/nasa/fprime-gds/pull/294" target="_blank" rel="noopener"><span data-i18n="fCta">PR #294'ü incele</span> <span aria-hidden="true">↗</span></a>
+            <p data-i18n="fDesc">F´Prime, NASA JPL'in açık kaynak uçuş yazılımı çatısı; Mars'ta uçan Ingenuity helikopterinde de kullanıldı. Hem çatının kendisine hem de yer istasyonu aracı fprime-gds'e gönderdiğim 4 PR birleştirildi.</p>
+            <a class="button warm" href="https://github.com/search?q=author%3Aalideniztartma+org%3Anasa+is%3Apr&amp;type=pullrequests" target="_blank" rel="noopener"><span data-i18n="fCta">NASA PR'larımı gör</span> <span aria-hidden="true">↗</span></a>
           </div>
-          <ul class="feature-stats">
-            <li><small data-i18n="fS1k">Proje</small><b>nasa/fprime-gds</b></li>
-            <li><small data-i18n="fS2k">Alan</small><b data-i18n="fS2v">Uçuş yazılımı · yer istasyonu</b></li>
-            <li><small data-i18n="fS3k">Katkı</small><b data-i18n="fS3v">Python 3.10 uyumluluğu</b></li>
-          </ul>
+          <ol class="feature-prs">
+            <li><a href="https://github.com/nasa/fprime-gds/pull/294" target="_blank" rel="noopener"><small>FPRIME-GDS · #294</small><b data-i18n="n1">Python 3.10 uyumluluğu (timezone.utc)</b></a></li>
+            <li><a href="https://github.com/nasa/fprime/pull/5045" target="_blank" rel="noopener"><small>FPRIME · #5045</small><b data-i18n="n2">Referans projeler için derleme durumu rozetleri</b></a></li>
+            <li><a href="https://github.com/nasa/fprime/pull/5020" target="_blank" rel="noopener"><small>FPRIME · #5020</small><b data-i18n="n3">Port desenleri rehberinde yazım düzeltmeleri</b></a></li>
+            <li><a href="https://github.com/nasa/fprime/pull/4924" target="_blank" rel="noopener"><small>FPRIME · #4924</small><b data-i18n="n4">Giriş dokümanında tekrar ve biçim düzeltmesi</b></a></li>
+          </ol>
         </article>
         <ol class="contributions">
           <li class="contribution">
@@ -464,7 +471,7 @@
             </a>
           </li>
           <li class="contribution">
-            <a href="https://github.com/facebook/react/pull/36170" target="_blank" rel="noopener">
+            <a href="https://github.com/react/react/pull/36170" target="_blank" rel="noopener">
               <span class="meta"><img class="contribution-logo" src="https://github.com/facebook.png?size=64" alt="" width="30" height="30" loading="lazy" decoding="async">META / REACT · PR #36170</span>
               <h3><span data-i18n="c3t">Dokümantasyon iyileştirmeleri</span> <span class="arrow" aria-hidden="true">↗</span></h3>
               <p data-i18n-html="c3d"><code>DESIGN_GOALS</code> dokümantasyonunu iyileştirip yazım hatalarını düzelttim.</p>
@@ -477,6 +484,14 @@
               <h3><span data-i18n="c4t">SQLite yazım düzeltmesi</span> <span class="arrow" aria-hidden="true">↗</span></h3>
               <p data-i18n="c4d">Veritabanı sürücüleri bölümündeki SQLite yazımını düzelttim.</p>
               <span class="mark" aria-hidden="true">03</span>
+            </a>
+          </li>
+          <li class="contribution">
+            <a href="https://github.com/lingdojo/kana-dojo/pull/11373" target="_blank" rel="noopener">
+              <span class="meta"><img class="contribution-logo" src="https://github.com/lingdojo.png?size=64" alt="" width="30" height="30" loading="lazy" decoding="async">LINGDOJO / KANA DOJO · PR #11373</span>
+              <h3><span data-i18n="c5t">Japon kültürü ipucu</span> <span class="arrow" aria-hidden="true">↗</span></h3>
+              <p data-i18n="c5d">Japonca öğrenme uygulamasına yeni bir kültürel görgü kuralı ipucu ekledim.</p>
+              <span class="mark" aria-hidden="true">04</span>
             </a>
           </li>
         </ol>
@@ -549,7 +564,7 @@
       var copy = {
         tr: {
           title: "Ali Deniz Tartma — Açık kaynak geliştirici",
-          description: "Ali Deniz Tartma: NASA F´Prime, React ve MDN gibi projelere katkı veren 16 yaşında açık kaynak geliştirici. Katkılar, projeler ve iletişim.",
+          description: "Ali Deniz Tartma: NASA F´Prime (4 PR), React ve MDN gibi projelere katkı veren 16 yaşında açık kaynak geliştirici. Katkılar, projeler ve iletişim.",
           skip: "İçeriğe geç", homeLabel: "Ali Deniz Tartma ana sayfa", navLabel: "Ana menü",
           navContrib: "Katkılar", navProjects: "Projeler", navContact: "İletişim",
           langLabel: "Dili değiştir", themeLabel: "Temayı değiştir",
@@ -560,9 +575,10 @@
           mapLabel: "Katkı haritası: NASA, React, MDN ve Awesome Python", mapTop: "KATKI HARİTASI / 2025—",
           contribTitle: "Katkılarım.", contribIntro: "Katkılar küçük başlayabilir. Her PR ile biraz daha öğreniyorum.",
           c1t: "Python 3.10 uyumluluğu", c1d: "<code>datetime.UTC</code> yerine <code>timezone.utc</code> kullanarak Python 3.10 uyumluluk hatasını giderdim.",
-          fBadge: "öne çıkan katkı", fCta: "PR #294'ü incele",
-          fDesc: "F´Prime, NASA JPL'in uçuş yazılımı çatısı; Mars'ta uçan Ingenuity helikopterinde de kullanıldı. Yer istasyonu aracı <code>fprime-gds</code>'te <code>datetime.UTC</code> yerine <code>timezone.utc</code> kullanarak Python 3.10 uyumluluk hatasını giderdim.",
-          fS1k: "Proje", fS2k: "Alan", fS2v: "Uçuş yazılımı · yer istasyonu", fS3k: "Katkı", fS3v: "Python 3.10 uyumluluğu",
+          fBadge: "öne çıkan katkı", fCta: "NASA PR'larımı gör",
+          fDesc: "F´Prime, NASA JPL'in açık kaynak uçuş yazılımı çatısı; Mars'ta uçan Ingenuity helikopterinde de kullanıldı. Hem çatının kendisine hem de yer istasyonu aracı fprime-gds'e gönderdiğim 4 PR birleştirildi.",
+          n1: "Python 3.10 uyumluluğu (timezone.utc)", n2: "Referans projeler için derleme durumu rozetleri", n3: "Port desenleri rehberinde yazım düzeltmeleri", n4: "Giriş dokümanında tekrar ve biçim düzeltmesi",
+          c5t: "Japon kültürü ipucu", c5d: "Japonca öğrenme uygulamasına yeni bir kültürel görgü kuralı ipucu ekledim.",
           c2t: "RTT sözlüğü düzeltmeleri", c2d: "RTT sözlük maddesindeki hataları ve teknik tutarsızlıkları düzelttim.",
           c3t: "Dokümantasyon iyileştirmeleri", c3d: "<code>DESIGN_GOALS</code> dokümantasyonunu iyileştirip yazım hatalarını düzelttim.",
           c4t: "SQLite yazım düzeltmesi", c4d: "Veritabanı sürücüleri bölümündeki SQLite yazımını düzelttim.",
@@ -575,7 +591,7 @@
         },
         en: {
           title: "Ali Deniz Tartma — Open-source developer",
-          description: "Ali Deniz Tartma: a 16-year-old open-source developer contributing to NASA F´Prime, React and MDN. Contributions, projects and contact.",
+          description: "Ali Deniz Tartma: a 16-year-old open-source developer with 4 merged PRs to NASA F´Prime, plus React and MDN. Contributions, projects and contact.",
           skip: "Skip to content", homeLabel: "Ali Deniz Tartma home", navLabel: "Main menu",
           navContrib: "Contributions", navProjects: "Projects", navContact: "Contact",
           langLabel: "Change language", themeLabel: "Toggle theme",
@@ -586,9 +602,10 @@
           mapLabel: "Contribution map: NASA, React, MDN and Awesome Python", mapTop: "CONTRIBUTION MAP / 2025—",
           contribTitle: "Contributions.", contribIntro: "Contributions can start small. Every PR teaches me a little more.",
           c1t: "Python 3.10 compatibility", c1d: "Fixed a Python 3.10 compatibility bug by using <code>timezone.utc</code> instead of <code>datetime.UTC</code>.",
-          fBadge: "featured contribution", fCta: "Review PR #294",
-          fDesc: "F´Prime is NASA JPL's flight software framework, also used on the Ingenuity helicopter that flew on Mars. In its ground data system <code>fprime-gds</code>, I fixed a Python 3.10 compatibility bug by using <code>timezone.utc</code> instead of <code>datetime.UTC</code>.",
-          fS1k: "Project", fS2k: "Area", fS2v: "Flight software · ground system", fS3k: "Change", fS3v: "Python 3.10 compatibility",
+          fBadge: "featured contribution", fCta: "See my NASA PRs",
+          fDesc: "F´Prime is NASA JPL's open-source flight software framework, also used on the Ingenuity helicopter that flew on Mars. Four of my PRs were merged, both into the framework itself and its ground data system, fprime-gds.",
+          n1: "Python 3.10 compatibility (timezone.utc)", n2: "Build status badges for reference projects", n3: "Typo fixes in the port patterns guide", n4: "Duplicate word and formatting fix in the introduction",
+          c5t: "Japanese culture tip", c5d: "Added a new cultural etiquette tip to a Japanese learning app.",
           c2t: "RTT glossary fixes", c2d: "Fixed errors and technical inconsistencies in the RTT glossary entry.",
           c3t: "Documentation improvements", c3d: "Improved the <code>DESIGN_GOALS</code> documentation and fixed typos.",
           c4t: "SQLite spelling fix", c4d: "Fixed the SQLite spelling in the database drivers section.",
